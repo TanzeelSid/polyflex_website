@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Us - Polyflex Printing Services</title>
+  <link rel="icon" href="logo.png" type="image/x-icon">
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent:#0d6efd;
+      --accent-dark:#0b5ed7;
+      /* Lighter muted tone for dark backgrounds */
+      --muted:#aebad1;
+      --glass: rgba(255,255,255,0.06);
+      --bg:#0f1723;
+      --card:#0b1220;
+    }
+    html,body{height:100%;}
+    body{
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg,#071025 0%, #071a2a 45%, #0b1220 100%);
+      color: #e9eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    /* Navbar */
+    .navbar-custom{
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      background: linear-gradient(90deg, rgba(13,110,253,0.06), rgba(13,110,253,0.02));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .brand-logo{
+      font-family: 'Playfair Display', serif;
+      font-weight:700;
+      letter-spacing:0.6px;
+      color: white;
+    }
+    /* Improve default muted contrast on dark background */
+    .text-muted, small.text-muted{color:var(--muted)!important}
+
+    /* Headings: increase contrast/readability on dark theme */
+    h1,h2,h3,h4,h5,h6{color:#e9eef8}
+    .card h5,.card h6,.service-card h5,.contact-card h5,.contact-card h6{color:#f5f8ff}
+    .card h5,.service-card h5,.contact-card h5{font-weight:700;letter-spacing:.2px}
+    .card h6,.contact-card h6{font-weight:600}
+
+    /* Partners section */
+    .partners{padding:2.5rem 0;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))}
+    .partners-home{margin-top:2.5rem;background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:1rem 1.25rem}
+    .partner-logos{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;align-items:center;justify-items:center}
+    .partner-logos img{width:200px;height:200px;object-fit:contain;border-radius:12px;padding:.5rem;background:rgba(255,255,255,0.02);opacity:.95;transition:opacity .25s ease, transform .25s ease, box-shadow .25s ease, background .25s ease}
+    .partners-title{font-weight:800;letter-spacing:.4px;font-size:2rem;background:linear-gradient(90deg,#e9eef8,#a9c6ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .partner-logos img:hover{opacity:1;transform:translateY(-2px) scale(1.02);box-shadow:0 10px 28px rgba(2,6,23,0.5), 0 0 0 6px rgba(255,255,255,0.06) inset;background:rgba(255,255,255,0.04)}
+    @media (max-width:991px){.partner-logos{grid-template-columns:repeat(3,1fr)} .partner-logos img{width:140px;height:140px} .partners-title{font-size:1.6rem}}
+    @media (max-width:575px){.partner-logos{grid-template-columns:repeat(2,1fr)} .partner-logos img{width:110px;height:110px} .partners-title{font-size:1.35rem}}
+
+    /* Testimonials */
+    .testimonials{padding:3rem 0;border-top:1px solid rgba(255,255,255,0.06)}
+    .reviews-viewport{overflow:hidden}
+    .reviews-track{display:flex;gap:1rem;align-items:stretch;animation:reviewsScroll 40s linear infinite}
+    .testimonials:hover .reviews-track{animation-play-state:paused}
+    .review-card{flex:0 0 20%;background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:1rem}
+    .review-header{display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem}
+    .avatar{width:36px;height:36px;border-radius:50%;background:#0d6efd;flex:none;overflow:hidden}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+    .stars i{color:#ffd166}
+    .review-text{color:var(--muted);font-size:.9rem}
+    @keyframes reviewsScroll{from{transform:translateX(0)} to{transform:translateX(-50%)}}
+    @media (max-width:1199px){.review-card{flex-basis:25%}}
+    @media (max-width:991px){.review-card{flex-basis:33.333%}}
+    @media (max-width:575px){.review-card{flex-basis:100%}}
+
+    /* Hero */
+    .hero{
+      padding: 6rem 0 4rem;
+      background-image: radial-gradient(circle at 10% 10%, rgba(13,110,253,0.06), transparent 10%), radial-gradient(circle at 90% 90%, rgba(99,102,241,0.04), transparent 12%);
+    }
+    .hero .chip{
+      background: linear-gradient(90deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      padding: .35rem .6rem;
+      border-radius: 999px;
+      font-size: .85rem;
+      color: #cfe3ff;
+      display:inline-flex;gap:.4rem;align-items:center;
+    }
+    .cta-btn{
+      border-radius: 12px;
+      padding: .8rem 1.25rem;
+      box-shadow: 0 8px 30px rgba(13,110,253,0.12);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .cta-btn:hover{transform: translateY(-3px); box-shadow: 0 14px 40px rgba(13,110,253,0.16)}
+
+    /* Services */
+    .service-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02));
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding:1.2rem;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .service-card:hover{transform: translateY(-8px); box-shadow: 0 20px 40px rgba(2,6,23,0.6)}
+
+    /* Portfolio */
+    .portfolio-item{
+      border-radius: 12px; overflow:hidden; position:relative;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .portfolio-item .overlay{
+      position:absolute;inset:0;background:linear-gradient(180deg, rgba(2,6,23,0.1), rgba(2,6,23,0.75));opacity:0;transition:opacity .25s ease;display:flex;align-items:flex-end;padding:1rem;
+    }
+    .portfolio-item:hover .overlay{opacity:1}
+
+    /* Timeline */
+    .timeline{position:relative}
+    .timeline::before{content:"";position:absolute;left:20px;top:0;bottom:0;width:2px;background:linear-gradient(#0d6efd,#6f42c1);opacity:.12}
+    .timeline-item{position:relative;padding-left:50px;margin-bottom:2.25rem}
+    .timeline-item .dot{position:absolute;left:12px;top:6px;width:16px;height:16px;border-radius:50%;background:linear-gradient(180deg,var(--accent),var(--accent-dark));box-shadow:0 0 20px rgba(13,110,253,0.12)}
+
+    /* Contact */
+    .contact-card{background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02)); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:1.25rem}
+
+    /* Footer */
+    footer{padding:2.5rem 0;color:#c9d6ee;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(13,110,253,0.06));border-top:1px solid rgba(255,255,255,0.08);position:relative}
+    footer::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 200px at 20% -50px, rgba(13,110,253,0.25), transparent 60%), radial-gradient(500px 180px at 80% -40px, rgba(111,66,193,0.22), transparent 60%);opacity:.35;pointer-events:none}
+    footer a{text-decoration:none;transition:color .2s ease, opacity .2s ease}
+    footer a:hover{color:#ffffff;opacity:1}
+
+    /* Improve badges on dark surfaces */
+    .badge.bg-secondary{background-color:rgba(255,255,255,0.12)!important;color:#e6eeff!important}
+    .badge.bg-primary{background-color:rgba(13,110,253,0.25)!important;color:#e6eeff!important}
+
+    /* Navbar link readability */
+    .navbar-dark .navbar-nav .nav-link{color:#cfe3ff}
+    .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link.active{color:#ffffff}
+
+    /* Form improvements: make labels and controls clearer */
+    .form-label{color:#e6eeff!important;font-weight:600}
+    .form-control{background-color:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.28);color:#e9eef8}
+    .form-control:focus{background-color:rgba(255,255,255,0.14);border-color:var(--accent);box-shadow:0 0 0 .2rem rgba(13,110,253,0.25)}
+    .form-control::placeholder{color:#cfe3ff;opacity:.9}
+
+    /* Generic card on dark theme (e.g., Vision & Mission) */
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border:1px solid rgba(255,255,255,0.1); color:#dfe7f6}
+    .card hr{border-color:rgba(255,255,255,0.18);opacity:1}
+    .card p,.card .small,.card .text-muted{color:var(--muted)!important}
+
+    /* About section background video */
+    #about{position:relative;overflow:hidden}
+    #about .bg-video{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;z-index:-1;pointer-events:none;opacity:.6}
+    #about .bg-overlay{position:absolute;inset:0;background:radial-gradient(1200px 500px at 20% 0%, rgba(13,110,253,0.12), transparent 60%), linear-gradient(180deg, rgba(2,6,23,0.35), rgba(2,6,23,0.65));z-index:0}
+    #about > .container{position:relative;z-index:1}
+
+    /* small animations */
+    .fade-in{opacity:0;transform:translateY(10px);transition:opacity .6s ease, transform .6s ease}
+    .fade-in.show{opacity:1;transform:none}
+
+    /* Extended spacing utilities to support *-6 classes used in markup */
+    .mt-6{margin-top:4rem!important}
+    .mb-6{margin-bottom:4rem!important}
+    .my-6{margin-top:4rem!important;margin-bottom:4rem!important}
+    .pt-6{padding-top:4rem!important}
+    .pb-6{padding-bottom:4rem!important}
+    .py-6{padding-top:4rem!important;padding-bottom:4rem!important}
+
+    /* Account for fixed navbar when using in-page anchors */
+    header, section{scroll-margin-top:100px}
+
+    /* Respect reduced motion preferences */
+    @media (prefers-reduced-motion: reduce){
+      *{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}
+    }
+
+    @media (max-width:767px){
+      .hero{padding:3.5rem 0}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom py-3 fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="polyflex_website.html">
+        <div class="brand-logo">POLYFLEX</div>
+        <small class="text-muted" style="font-size:.65rem;">Printing & Packaging</small>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="polyflex_website.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="polyflex_website.html#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="polyflex_website.html#portfolio">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="polyflex_website.html#contact">Contact</a></li>
+        </ul>
+        <a class="btn btn-primary ms-3 cta-btn" href="polyflex_website.html#contact">Get Quote <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-6" style="margin-top:80px; padding-top:80px;">
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="printing.mp4" type="video/mp4">
+      <source src="about-bg.mp4" type="video/mp4">
+      <source src="about.mp4" type="video/mp4">
+      <source src="bg.mp4" type="video/mp4">
+      <source src="background.mp4" type="video/mp4">
+      <source src="video.mp4" type="video/mp4">
+    </video>
+    <div class="bg-overlay"></div>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h1 class="display-5 fw-bold mb-4">About Polyflex</h1>
+          <p class="text-muted">Established in 1983, Polyflex Printing Services grew from a custom printing shop into a full-service packaging partner. We focus on quality, customer-centric solutions, and sustainability.</p>
+
+          <div class="timeline mt-4">
+            <div class="timeline-item">
+              <div class="dot"></div>
+              <h6 class="mb-1">1983 — Founded</h6>
+              <p class="small text-muted">Started as a custom printing operation focused on local clients.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="dot"></div>
+              <h6 class="mb-1">2000 — Automated Label Printing</h6>
+              <p class="small text-muted">Expanded capabilities to include automated label printing and plastic packaging.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="dot"></div>
+              <h6 class="mb-1">2015 — ISO 9001 Certification</h6>
+              <p class="small text-muted">Achieved ISO quality standards and food-safe packaging processes.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="dot"></div>
+              <h6 class="mb-1">2023 — Started Exports</h6>
+              <p class="small text-muted">Began exporting packaging products to international markets.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 mt-4 mt-lg-0">
+          <div class="card p-4" style="border-radius:14px;">
+            <h5 class="mb-2">Our Vision & Mission</h5>
+            <p class="small text-muted"><strong>Vision</strong>: To be recognized as a leading global packaging partner, known for excellence, sustainability, and innovation.</p>
+            <p class="small text-muted"><strong>Mission</strong>: To deliver innovative, reliable, and sustainable packaging solutions that protect products, empower brands, and create value for our clients.</p>
+            <hr>
+            <h6>Core Values</h6>
+            <div class="d-flex gap-2 flex-wrap mt-2">
+              <span class="badge bg-primary">Quality First</span>
+              <span class="badge bg-primary">Customer-Centric</span>
+              <span class="badge bg-primary">Sustainability</span>
+              <span class="badge bg-primary">Innovation</span>
+              <span class="badge bg-primary">Integrity</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <div class="brand-logo mb-2">POLYFLEX</div>
+          <p class="small text-muted">Innovative, reliable, and sustainable packaging solutions since 1983. ISO 9001:2015 certified with a focus on quality and customer satisfaction.</p>
+          <div class="d-flex gap-3 mt-3">
+            <a href="#" class="text-muted"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-muted"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="text-muted"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="text-muted"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
+          <h6 class="mb-3">Quick Links</h6>
+          <ul class="list-unstyled small">
+            <li class="mb-2"><a href="polyflex_website.html" class="text-muted">Home</a></li>
+            <li class="mb-2"><a href="about.html" class="text-muted">About Us</a></li>
+            <li class="mb-2"><a href="polyflex_website.html#services" class="text-muted">Services</a></li>
+            <li class="mb-2"><a href="polyflex_website.html#portfolio" class="text-muted">Portfolio</a></li>
+            <li><a href="polyflex_website.html#contact" class="text-muted">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <h6 class="mb-3">Contact</h6>
+          <ul class="list-unstyled small text-muted">
+            <li class="mb-2"><i class="bi bi-geo-alt me-2"></i> Plot No. CA-329 Shah Baig Gabool Town, North Karachi Industrial Area Karachi</li>
+            <li class="mb-2"><i class="bi bi-telephone me-2"></i> 0300-9200021</li>
+            <li><i class="bi bi-envelope me-2"></i> info@polyflexprintingservices.com</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="mt-4 mb-3">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <p class="small text-muted mb-2 mb-md-0">© 2024 Polyflex Printing Services. All rights reserved.</p>
+        <div class="small text-muted">
+          <a href="#" class="text-muted me-3">Privacy Policy</a>
+          <a href="#" class="text-muted">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function(){
+    // Helper: set active nav link on scroll
+    function updateActiveNav(){
+      const currentPage = window.location.pathname.split('/').pop();
+      document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+          link.classList.add('active');
+        }
+      });
+    }
+    updateActiveNav();
+  });
+  </script>
+</body>
+</html>
