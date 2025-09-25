@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Polyflex Printing Services — Services</title>
+  <link rel="icon" href="logo.png" type="image/x-icon">
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent:#0d6efd;
+      --accent-dark:#0b5ed7;
+      /* Lighter muted tone for dark backgrounds */
+      --muted:#aebad1;
+      --glass: rgba(255,255,255,0.06);
+      --bg:#0f1723;
+      --card:#0b1220;
+    }
+    html,body{height:100%;}
+    body{
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg,#071025 0%, #071a2a 45%, #0b1220 100%);
+      color: #e9eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    /* Navbar */
+    .navbar-custom{
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      background: linear-gradient(90deg, rgba(13,110,253,0.06), rgba(13,110,253,0.02));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .brand-logo{
+      font-family: 'Playfair Display', serif;
+      font-weight:700;
+      letter-spacing:0.6px;
+      color: white;
+    }
+    /* Improve default muted contrast on dark background */
+    .text-muted, small.text-muted{color:var(--muted)!important}
+
+    /* Headings: increase contrast/readability on dark theme */
+    h1,h2,h3,h4,h5,h6{color:#e9eef8}
+    
+    /* Sections */
+    .pt-6{padding-top:5rem}
+    .pb-6{padding-bottom:5rem}
+    
+    /* Service cards */
+    .service-card {
+      background-color: var(--card);
+      border-radius: 12px;
+      padding: 1.5rem;
+      height: 100%;
+      border: 1px solid rgba(255,255,255,0.03);
+      transition: all 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      border-color: rgba(13,110,253,0.2);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--card);
+      padding: 3rem 0;
+      border-top: 1px solid rgba(255,255,255,0.03);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom py-3 fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <div class="brand-logo">POLYFLEX</div>
+        <small class="text-muted" style="font-size:.65rem;">Printing & Packaging</small>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <a class="btn btn-primary ms-3 cta-btn" href="contact.html">Get Quote <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="pt-6 pb-4" style="padding-top:110px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h1 class="display-5 fw-bold">Our Services</h1>
+          <p class="lead text-muted mt-3">Comprehensive printing and packaging solutions tailored to your business needs</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SERVICES -->
+  <section id="services" class="pt-4 pb-6 bg-transparent">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">What We Do</h2>
+        <p class="text-muted small mb-0">End-to-end packaging & printing solutions across industries.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-printer fs-2 text-primary"></i>
+              <div>
+                <h5 class="mb-1">Custom Printing</h5>
+                <p class="small text-muted mb-1">High-quality reel printing, labels, shrink sleeves, and branding solutions.</p>
+                <small class="text-muted">Flexographic & digital setups for vibrant results.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-box-seam fs-2 text-primary"></i>
+              <div>
+                <h5 class="mb-1">Plastic & Flexible Packaging</h5>
+                <p class="small text-muted mb-1">Poly bags, zipper lock bags, vacuum bags, and shrink wraps tailored to product needs.</p>
+                <small class="text-muted">Pouch-making, die-cutting & lamination included.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-egg-fried fs-2 text-primary"></i>
+              <div>
+                <h5 class="mb-1">Food-Safe Packaging</h5>
+                <p class="small text-muted mb-1">Disposable containers, blister trays and eco-friendly options for FMCG.</p>
+                <small class="text-muted">BPA-free plastics & rigorous product testing.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-globe fs-2 text-primary"></i>
+              <div>
+                <h5 class="mb-1">Export & Supply</h5>
+                <p class="small text-muted mb-1">Reliable packaging solutions supplied to local and international markets.</p>
+                <small class="text-muted">Quality assurance for export standards.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-award fs-2 text-primary"></i>
+              <div>
+                <h5 class="mb-1">Quality Assurance</h5>
+                <p class="small text-muted mb-1">In-house QC lab for batch sampling, defect detection and compliance.</p>
+                <small class="text-muted">ISO 9001 protocols & tamper-evident designs.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card">
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-lightbulb fs-2 text-primary"></i>
+              <div>
+                <h5 class="mb-1">R&D & Innovation</h5>
+                <p class="small text-muted mb-1">Sustainable materials research and anti-counterfeit solutions.</p>
+                <small class="text-muted">Customized, traceable packaging & secure labels.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  
+  <!-- INDUSTRIES WE SERVE -->
+  <section id="industries" class="pt-6 pb-6">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">Industries we serve</h2>
+        <p class="text-muted small mb-0">Tailored printing & packaging across sectors.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100">
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-basket2 fs-2 text-primary"></i>
+              <div>
+                <h5 class="mb-1">Food</h5>
+                <p class="small text-muted mb-0">Packaging for snacks, rice, spices</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100">
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-bag fs-2 text-primary"></i>
+              <div>
+                <h5 class="mb-1">Retail</h5>
+                <p class="small text-muted mb-0">Carry bags and promotional packaging for retail.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100">
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-flower3 fs-2 text-primary"></i>
+              <div>
+                <h5 class="mb-1">Cosmetics & Personal Care</h5>
+                <p class="small text-muted mb-0">Pouches and labels for beauty & hygiene products</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100">
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-handbag fs-2 text-primary"></i>
+              <div>
+                <h5 class="mb-1">Fashion & Apparel</h5>
+                <p class="small text-muted mb-0">Packaging for clothing, shoes, and accessories.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100">
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-capsule-pill fs-2 text-primary"></i>
+              <div>
+                <h5 class="mb-1">Pharmaceuticals</h5>
+                <p class="small text-muted mb-0">Packaging such as blister packs, medication labels</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card h-100">
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-droplet fs-2 text-primary"></i>
+              <div>
+                <h5 class="mb-1">Beverages</h5>
+                <p class="small text-muted mb-0">Labels and packaging for drinks and liquid products</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <div class="brand-logo mb-2">POLYFLEX</div>
+          <p class="small text-muted">Innovative, reliable, and sustainable packaging solutions since 1983. ISO 9001:2015 certified with a focus on quality and customer satisfaction.</p>
+          <div class="d-flex gap-3 mt-3">
+            <a href="#" class="text-muted"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-muted"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="text-muted"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="text-muted"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
+          <h6 class="mb-3">Quick Links</h6>
+          <ul class="list-unstyled small">
+            <li class="mb-2"><a href="polyflex_website.html" class="text-muted">Home</a></li>
+            <li class="mb-2"><a href="about.html" class="text-muted">About Us</a></li>
+            <li class="mb-2"><a href="polyflex_website.html#services" class="text-muted">Services</a></li>
+            <li class="mb-2"><a href="polyflex_website.html#portfolio" class="text-muted">Portfolio</a></li>
+            <li><a href="polyflex_website.html#contact" class="text-muted">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <h6 class="mb-3">Contact</h6>
+          <ul class="list-unstyled small text-muted">
+            <li class="mb-2"><i class="bi bi-geo-alt me-2"></i> Plot No. CA-329 Shah Baig Gabool Town, North Karachi Industrial Area Karachi</li>
+            <li class="mb-2"><i class="bi bi-telephone me-2"></i> 0300-9200021</li>
+            <li><i class="bi bi-envelope me-2"></i> info@polyflexprintingservices.com</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="mt-4 mb-3">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <p class="small text-muted mb-2 mb-md-0">© 2024 Polyflex Printing Services. All rights reserved.</p>
+        <div class="small text-muted">
+          <a href="#" class="text-muted me-3">Privacy Policy</a>
+          <a href="#" class="text-muted">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
