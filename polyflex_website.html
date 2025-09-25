@@ -62,6 +62,22 @@
     @media (max-width:991px){.partner-logos{grid-template-columns:repeat(3,1fr)} .partner-logos img{width:140px;height:140px} .partners-title{font-size:1.6rem}}
     @media (max-width:575px){.partner-logos{grid-template-columns:repeat(2,1fr)} .partner-logos img{width:110px;height:110px} .partners-title{font-size:1.35rem}}
 
+    /* Testimonials */
+    .testimonials{padding:3rem 0;border-top:1px solid rgba(255,255,255,0.06)}
+    .reviews-viewport{overflow:hidden}
+    .reviews-track{display:flex;gap:1rem;align-items:stretch;animation:reviewsScroll 40s linear infinite}
+    .testimonials:hover .reviews-track{animation-play-state:paused}
+    .review-card{flex:0 0 20%;background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:1rem}
+    .review-header{display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem}
+    .avatar{width:36px;height:36px;border-radius:50%;background:#0d6efd;flex:none;overflow:hidden}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+    .stars i{color:#ffd166}
+    .review-text{color:var(--muted);font-size:.9rem}
+    @keyframes reviewsScroll{from{transform:translateX(0)} to{transform:translateX(-50%)}}
+    @media (max-width:1199px){.review-card{flex-basis:25%}}
+    @media (max-width:991px){.review-card{flex-basis:33.333%}}
+    @media (max-width:575px){.review-card{flex-basis:100%}}
+
     /* Hero */
     .hero{
       padding: 6rem 0 4rem;
@@ -278,6 +294,33 @@
           <img src="company6.jpeg" alt="Partner 6">
         </div>
       </div>
+
+      <!-- Testimonials -->
+      <section class="testimonials mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h3 class="mb-0">What our clients say</h3>
+          <small class="text-muted">Auto-scroll • hover to pause</small>
+        </div>
+        <div class="reviews-viewport">
+          <div class="reviews-track" id="reviewsTrack">
+            
+            <!-- 15 reviews duplicated for seamless loop (30 cards total) -->
+            <template id="reviewTemplate">
+              <div class="review-card">
+                <div class="review-header">
+                  <div class="avatar"><img src="" alt=""></div>
+                  <div>
+                    <strong class="name">John Doe</strong>
+                    <div class="stars"></div>
+                  </div>
+                </div>
+                <div class="review-text">Great quality and fast turnaround. Highly recommended!</div>
+              </div>
+            </template>
+
+          </div>
+        </div>
+      </section>
 
     </div>
   </header>
@@ -701,6 +744,46 @@ document.addEventListener('DOMContentLoaded', function(){
         if(newItem){ newItem.classList.add('fade-in'); io.observe(newItem); }
       }
       this.classList.add('disabled'); this.textContent='All items loaded';
+    });
+  }
+
+  // Testimonials data and render
+  const reviews = [
+    {name:'Ayesha K.', avatar:'https://i.pravatar.cc/60?img=1', rating:5, text:'Outstanding print quality and superb service.'},
+    {name:'Bilal S.', avatar:'https://i.pravatar.cc/60?img=2', rating:4, text:'Reliable partner for our label needs.'},
+    {name:'Hina R.', avatar:'https://i.pravatar.cc/60?img=3', rating:5, text:'Fast turnaround and attention to detail!'},
+    {name:'Omar T.', avatar:'https://i.pravatar.cc/60?img=4', rating:3, text:'Good experience overall; could improve packaging options.'},
+    {name:'Kiran M.', avatar:'https://i.pravatar.cc/60?img=5', rating:4, text:'Solid results and fair pricing.'},
+    {name:'Zeeshan A.', avatar:'https://i.pravatar.cc/60?img=6', rating:5, text:'They nailed our brand colors perfectly.'},
+    {name:'Sara J.', avatar:'https://i.pravatar.cc/60?img=7', rating:4, text:'Responsive team and quality output.'},
+    {name:'Danish Q.', avatar:'https://i.pravatar.cc/60?img=8', rating:2, text:'Decent but shipping took longer than expected.'},
+    {name:'Mehwish L.', avatar:'https://i.pravatar.cc/60?img=9', rating:5, text:'Exceptional flexo printing—crisp and consistent.'},
+    {name:'Rehan U.', avatar:'https://i.pravatar.cc/60?img=10', rating:4, text:'Our go-to for shrink labels.'},
+    {name:'Anum Z.', avatar:'https://i.pravatar.cc/60?img=11', rating:5, text:'Professional and courteous service.'},
+    {name:'Fahad P.', avatar:'https://i.pravatar.cc/60?img=12', rating:3, text:'Print quality is good; timelines vary sometimes.'},
+    {name:'Nida S.', avatar:'https://i.pravatar.cc/60?img=13', rating:4, text:'Great value for money.'},
+    {name:'Usman B.', avatar:'https://i.pravatar.cc/60?img=14', rating:5, text:'Top-notch QC and finishing.'},
+    {name:'Hassan R.', avatar:'https://i.pravatar.cc/60?img=15', rating:4, text:'Delivered on a tight deadline—impressive!'}
+  ];
+
+  const reviewsTrack = document.getElementById('reviewsTrack');
+  const tpl = document.getElementById('reviewTemplate');
+  if(reviewsTrack && tpl){
+    function starsHTML(n){
+      let s='';
+      for(let i=1;i<=5;i++) s += `<i class="bi ${i<=n?'bi-star-fill':'bi-star'}"></i>`;
+      return s;
+    }
+    // build two copies for seamless loop
+    const all = [...reviews, ...reviews];
+    all.forEach((r)=>{
+      const node = tpl.content.cloneNode(true);
+      node.querySelector('.name').textContent = r.name;
+      node.querySelector('.avatar img').src = r.avatar;
+      node.querySelector('.avatar img').alt = r.name;
+      node.querySelector('.stars').innerHTML = starsHTML(r.rating);
+      node.querySelector('.review-text').textContent = r.text;
+      reviewsTrack.appendChild(node);
     });
   }
 
