@@ -54,11 +54,13 @@
 
     /* Partners section */
     .partners{padding:2.5rem 0;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))}
-    .partner-logos{display:grid;grid-template-columns:repeat(6,1fr);gap:1.5rem;align-items:center}
-    .partner-logos img{max-height:72px;width:100%;object-fit:contain;filter:grayscale(100%) contrast(1.1) brightness(1.1);opacity:.75;transition:filter .25s ease, opacity .25s ease, transform .25s ease}
-    .partner-logos img:hover{filter:grayscale(0%) contrast(1.05) brightness(1.0);opacity:1;transform:translateY(-2px)}
-    @media (max-width:991px){.partner-logos{grid-template-columns:repeat(3,1fr)} .partner-logos img{max-height:64px}}
-    @media (max-width:575px){.partner-logos{grid-template-columns:repeat(2,1fr)} .partner-logos img{max-height:56px}}
+    .partners-home{margin-top:2.5rem;background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:1rem 1.25rem}
+    .partner-logos{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;align-items:center;justify-items:center}
+    .partner-logos img{width:200px;height:200px;object-fit:contain;border-radius:12px;padding:.5rem;background:rgba(255,255,255,0.02);opacity:.95;transition:opacity .25s ease, transform .25s ease, box-shadow .25s ease, background .25s ease}
+    .partners-title{font-weight:800;letter-spacing:.4px;font-size:2rem;background:linear-gradient(90deg,#e9eef8,#a9c6ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .partner-logos img:hover{opacity:1;transform:translateY(-2px) scale(1.02);box-shadow:0 10px 28px rgba(2,6,23,0.5), 0 0 0 6px rgba(255,255,255,0.06) inset;background:rgba(255,255,255,0.04)}
+    @media (max-width:991px){.partner-logos{grid-template-columns:repeat(3,1fr)} .partner-logos img{width:140px;height:140px} .partners-title{font-size:1.6rem}}
+    @media (max-width:575px){.partner-logos{grid-template-columns:repeat(2,1fr)} .partner-logos img{width:110px;height:110px} .partners-title{font-size:1.35rem}}
 
     /* Hero */
     .hero{
@@ -258,6 +260,22 @@
             <p class="small text-muted mb-1">Phone: 0300-9200021</p>
             <p class="small text-muted">Email: info@polyflexprintingservices.com</p>
           </div>
+        </div>
+      </div>
+
+      <!-- Partners moved under home section -->
+      <div class="partners-home mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h3 class="mb-0 partners-title">Trusted by</h3>
+          <small class="text-muted">Selected partners & clients</small>
+        </div>
+        <div class="partner-logos">
+          <img src="company1.jpeg" alt="Partner 1">
+          <img src="company2.jpeg" alt="Partner 2">
+          <img src="company3.jpeg" alt="Partner 3">
+          <img src="company4.jpeg" alt="Partner 4">
+          <img src="company5.jpeg" alt="Partner 5">
+          <img src="company6.jpeg" alt="Partner 6">
         </div>
       </div>
 
@@ -608,23 +626,7 @@
     </div>
   </section>
 
-  <!-- PARTNERS / COLLABORATIONS -->
-  <section class="partners mt-6">
-    <div class="container">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h6 class="mb-0">Trusted by</h6>
-        <small class="text-muted">Selected partners & clients</small>
-      </div>
-      <div class="partner-logos">
-        <img src="company1.jpeg" alt="Partner 1">
-        <img src="company2.jpeg" alt="Partner 2">
-        <img src="company3.jpeg" alt="Partner 3">
-        <img src="company4.jpeg" alt="Partner 4">
-        <img src="company5.jpeg" alt="Partner 5">
-        <img src="company6.jpeg" alt="Partner 6">
-      </div>
-    </div>
-  </section>
+  
 
   <!-- FOOTER -->
   <footer>
