@@ -30,18 +30,20 @@
     html,body{height:100%;}
     body{
       font-family: 'Open Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      background: linear-gradient(180deg, var(--cream) 0%, #FFF8ED 45%, #FFFBF5 100%);
+      background: linear-gradient(180deg, var(--cream) 0%, #FFF8ED 35%, #FFFBF5 70%, #FFFFFF 100%);
+      background-attachment: fixed;
       color: var(--text-body);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
     /* Navbar */
     .navbar-custom{
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      background: rgba(255,255,255,0.7);
       border-bottom: 1px solid rgba(0,0,0,0.06);
       box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      transition: background 0.3s ease;
     }
     .brand-logo{
       font-family: 'Poppins', sans-serif;
@@ -82,16 +84,118 @@
     .testimonials:hover .reviews-track{animation-play-state:paused}
     .review-card{flex:0 0 20%;background:#ffffff;border:1px solid rgba(0,0,0,0.08);border-radius:14px;padding:1rem;box-shadow: 0 6px 20px rgba(0,0,0,0.03)}
     .review-header{display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem}
+    /* Portfolio slider */
+    .portfolio-slider-container {
+      position: relative;
+      width: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+      padding: 0 40px;
+    }
+    .portfolio-slider {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+    .portfolio-slider-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .portfolio-slide {
+      flex: 0 0 calc(33.333% - 20px);
+      margin: 0 10px;
+      min-width: 280px;
+    }
+    .slider-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--yellow);
+      color: white;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    .slider-nav:hover {
+      background: #e09819;
+      transform: translateY(-50%) scale(1.05);
+    }
+    .slider-prev {
+      left: -5px;
+    }
+    .slider-next {
+      right: -5px;
+    }
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ddd;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .dot.active {
+      background: var(--yellow);
+      transform: scale(1.2);
+    }
+    @media (max-width: 992px) {
+      .portfolio-slide {
+        flex: 0 0 calc(50% - 20px);
+      }
+      .portfolio-slider-container {
+        padding: 0 30px;
+      }
+    }
+    @media (max-width: 576px) {
+      .portfolio-slide {
+        flex: 0 0 calc(100% - 20px);
+      }
+      .portfolio-slider-container {
+        padding: 0 20px;
+      }
+      .slider-nav {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    /* Footer hover effects */
+    footer a.text-muted {
+      transition: color 0.3s ease, transform 0.2s ease;
+      display: inline-block;
+    }
+    footer a.text-muted:hover {
+      color: var(--yellow) !important;
+      transform: translateX(3px);
+    }
+    footer .bi {
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    footer a:hover .bi {
+      transform: scale(1.2);
+      color: var(--yellow) !important;
+    }
     .avatar{width:36px;height:36px;border-radius:50%;background:var(--accent);flex:none;overflow:hidden}
     .avatar img{width:100%;height:100%;object-fit:cover}
     .stars i{color:var(--yellow)}
     .review-text{color:var(--text-body);font-size:.9rem}
     @keyframes reviewsScroll{from{transform:translateX(0)} to{transform:translateX(-50%)}}
     @media (max-width:1199px){.review-card{flex-basis:25%}}
+
     @media (max-width:991px){.review-card{flex-basis:33.333%}}
     @media (max-width:575px){.review-card{flex-basis:100%}}
-
-    /* Hero */
     .hero{
       padding: 6rem 0 4rem;
       background-image: radial-gradient(circle at 10% 10%, rgba(250,177,47,0.08), transparent 10%), 
@@ -263,6 +367,64 @@
     @media (max-width:767px){
       .hero{padding:3.5rem 0}
     }
+    /* Full-width banner */
+    .full-width-banner {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      margin-top: 76px; /* Account for fixed navbar height */
+    }
+    
+    .banner-container {
+      display: flex;
+      height: 400px;
+    }
+    
+    .banner-image {
+      flex: 1;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .banner-center {
+      flex: 1;
+      background-color: var(--accent);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    .banner-center h2 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+    }
+    
+    .banner-center p {
+      max-width: 80%;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    @media (max-width: 992px) {
+      .banner-container {
+        flex-direction: column;
+        height: auto;
+      }
+      
+      .banner-image {
+        height: 200px;
+      }
+      
+      .banner-center {
+        padding: 3rem 1.5rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -290,8 +452,20 @@
     </div>
   </nav>
 
+  <!-- FULL-WIDTH BANNER -->
+  <section class="full-width-banner">
+    <div class="banner-container">
+      <img src="banner.jpeg" alt="Sustainable materials" class="banner-image">
+      <div class="banner-center">
+        <h2>POLYFLEX</h2>
+        <p>INNOVATIVE PRINTING & PACKAGING SOLUTIONS FOR BUSINESSES WORLDWIDE SINCE 1983.</p>
+      </div>
+      <img src="banner2.jpg" alt="Renewable solutions" class="banner-image">
+    </div>
+  </section>
+
   <!-- HERO / HOME -->
-  <header id="home" class="hero" style="padding-top:110px;">
+  <header id="home" class="hero" style="padding-top:40px;">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6">
@@ -647,49 +821,95 @@
         <h2 class="fw-bold">Portfolio</h2>
         <p class="text-muted small mb-0">A selection of product categories & packaging formats.</p>
       </div>
-
-      <div class="row g-3">
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item">
-            <img src="reel-printing.jpeg" alt="Reel Printing" style="width:100%;height:220px;object-fit:cover;">
-            <div class="overlay">
-              <div>
-                <h5 class="mb-0">Reel Printing</h5>
-                <p class="small text-muted mb-0">Continuous roll printing with vibrant results.</p>
+      
+      <div class="portfolio-slider-container">
+        <button class="slider-nav slider-prev" aria-label="Previous slide"><i class="bi bi-chevron-left"></i></button>
+        
+        <div class="portfolio-slider">
+          <div class="portfolio-slider-track">
+            <div class="portfolio-slide">
+              <div class="portfolio-item">
+                <img src="reel-printing.jpeg" alt="Reel Printing" style="width:100%;height:270px;object-fit:cover;">
+                <div class="overlay">
+                  <div>
+                    <h5 class="mb-0">Reel Printing</h5>
+                    <p class="small text-muted mb-0">Continuous roll printing with vibrant results.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="portfolio-slide">
+              <div class="portfolio-item">
+                <img src="shrink-labels.jpeg" alt="Shrink Labels" style="width:100%;height:270px;object-fit:cover;">
+                <div class="overlay">
+                  <div>
+                    <h5 class="mb-0">Shrink Labels</h5>
+                    <p class="small text-muted mb-0">Secure, tamper-evident and eye-catching.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="portfolio-slide">
+              <div class="portfolio-item">
+                <img src="zipper-lock-bags.jpeg" alt="Zipper Lock Bags" style="width:100%;height:270px;object-fit:cover;">
+                <div class="overlay">
+                  <div>
+                    <h5 class="mb-0">Zipper Lock Bags</h5>
+                    <p class="small text-muted mb-0">Resealable & reusable packaging for freshness.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="portfolio-slide">
+              <div class="portfolio-item">
+                <img src="product1.jpeg" alt="Product 1" style="width:100%;height:270px;object-fit:cover;">
+                <div class="overlay">
+                  <div>
+                    <h5 class="mb-0">Custom Packaging</h5>
+                    <p class="small text-muted mb-0">Tailored solutions for unique products.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="portfolio-slide">
+              <div class="portfolio-item">
+                <img src="product2.jpeg" alt="Product 2" style="width:100%;height:270px;object-fit:cover;">
+                <div class="overlay">
+                  <div>
+                    <h5 class="mb-0">Food Packaging</h5>
+                    <p class="small text-muted mb-0">Safe and attractive food containers.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="portfolio-slide">
+              <div class="portfolio-item">
+                <img src="product3.jpeg" alt="Product 3" style="width:100%;height:270px;object-fit:cover;">
+                <div class="overlay">
+                  <div>
+                    <h5 class="mb-0">Retail Packaging</h5>
+                    <p class="small text-muted mb-0">Stand out on store shelves.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item">
-            <img src="shrink-labels.jpeg" alt="Shrink Labels" style="width:100%;height:220px;object-fit:cover;">
-            <div class="overlay">
-              <div>
-                <h5 class="mb-0">Shrink Labels</h5>
-                <p class="small text-muted mb-0">Secure, tamper-evident and eye-catching.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item">
-            <img src="zipper-lock-bags.jpeg" alt="Zipper Lock Bags" style="width:100%;height:220px;object-fit:cover;">
-            <div class="overlay">
-              <div>
-                <h5 class="mb-0">Zipper Lock Bags</h5>
-                <p class="small text-muted mb-0">Resealable & reusable packaging for freshness.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        
+        <button class="slider-nav slider-next" aria-label="Next slide"><i class="bi bi-chevron-right"></i></button>
       </div>
-
-      <div class="text-center mt-4">
-        <button class="btn btn-warning" id="loadMore">Load More</button>
+      
+      <div class="slider-dots mt-3 text-center">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
       </div>
+    </div>
     </div>
   </section>
 
@@ -767,11 +987,11 @@
         <div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
           <h6 class="mb-3">Quick Links</h6>
           <ul class="list-unstyled small">
-            <li class="mb-2"><a href="polyflex_website.html" class="text-muted">Home</a></li>
+            <li class="mb-2"><a href="index.html" class="text-muted">Home</a></li>
             <li class="mb-2"><a href="about.html" class="text-muted">About Us</a></li>
-            <li class="mb-2"><a href="polyflex_website.html#services" class="text-muted">Services</a></li>
-            <li class="mb-2"><a href="polyflex_website.html#portfolio" class="text-muted">Portfolio</a></li>
-            <li><a href="polyflex_website.html#contact" class="text-muted">Contact</a></li>
+            <li class="mb-2"><a href="services.html" class="text-muted">Services</a></li>
+            <li class="mb-2"><a href="portfolio.html" class="text-muted">Portfolio</a></li>
+            <li><a href="contact.html" class="text-muted">Contact</a></li>
           </ul>
         </div>
         <div class="col-sm-6 col-lg-4">
@@ -847,6 +1067,86 @@ document.addEventListener('DOMContentLoaded', function(){
         if(newItem){ newItem.classList.add('fade-in'); io.observe(newItem); }
       }
       this.classList.add('disabled'); this.textContent='All items loaded';
+    });
+  }
+
+  // Portfolio Slider Functionality
+  const sliderTrack = document.querySelector('.portfolio-slider-track');
+  const slides = document.querySelectorAll('.portfolio-slide');
+  const prevBtn = document.querySelector('.slider-prev');
+  const nextBtn = document.querySelector('.slider-next');
+  const dots = document.querySelectorAll('.dot');
+  
+  if(sliderTrack && slides.length > 0) {
+    let currentIndex = 0;
+    const slidesPerView = window.innerWidth < 576 ? 1 : window.innerWidth < 992 ? 2 : 3;
+    const totalSlides = slides.length;
+    const maxIndex = Math.ceil(totalSlides / slidesPerView) - 1;
+    
+    // Update slider position and active dot
+    function updateSlider() {
+      const slideWidth = slides[0].offsetWidth;
+      const offset = -currentIndex * slideWidth * slidesPerView;
+      sliderTrack.style.transform = `translateX(${offset}px)`;
+      
+      // Update dots
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+      
+      // Update button states
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === maxIndex;
+      prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
+      nextBtn.style.opacity = currentIndex === maxIndex ? '0.5' : '1';
+    }
+    
+    // Initialize slider
+    updateSlider();
+    
+    // Event listeners
+    prevBtn.addEventListener('click', () => {
+      currentIndex = Math.max(0, currentIndex - 1);
+      updateSlider();
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      currentIndex = Math.min(maxIndex, currentIndex + 1);
+      updateSlider();
+    });
+    
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentIndex = Math.min(maxIndex, index);
+        updateSlider();
+      });
+    });
+    
+    // Auto-advance slider every 5 seconds
+    let autoplayInterval = setInterval(() => {
+      if (currentIndex < maxIndex) {
+        currentIndex++;
+      } else {
+        currentIndex = 0;
+      }
+      updateSlider();
+    }, 5000);
+    
+    // Pause autoplay on hover
+    const sliderContainer = document.querySelector('.portfolio-slider-container');
+    sliderContainer.addEventListener('mouseenter', () => {
+      clearInterval(autoplayInterval);
+    });
+    
+    sliderContainer.addEventListener('mouseleave', () => {
+      autoplayInterval = setInterval(() => {
+        if (currentIndex < maxIndex) {
+          currentIndex++;
+        } else {
+          currentIndex = 0;
+        }
+        updateSlider();
+      }, 5000);
     });
   }
 
@@ -936,8 +1236,4 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 </script>
 </body>
-</html>
-
-/* Chip color palette override for readability */
-.hero .chip{color:var(--muted)!important}
 </html>
