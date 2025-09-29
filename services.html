@@ -11,6 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
   <!-- Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
   <style>
     :root{
@@ -39,6 +41,53 @@
       color:var(--text-body);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
+    }
+    
+    /* Enhanced Service Icon Styles */
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #ffc107, #ffb300);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover .service-icon {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 12px 35px rgba(255, 193, 7, 0.4);
+    }
+
+    .service-icon i {
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    .tech-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #007bff, #0056b3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .tech-card:hover .tech-icon {
+      transform: scale(1.1) rotate(-5deg);
+      box-shadow: 0 12px 35px rgba(0, 123, 255, 0.4);
+    }
+
+    .tech-icon i {
+      font-size: 1.8rem;
+      color: #fff;
     }
     /* Navbar */
     .navbar-custom{
@@ -116,21 +165,390 @@
     .pt-6{padding-top:5rem}
     .pb-6{padding-bottom:5rem}
     
-    /* Service cards */
-    .service-card {
-      background-color: var(--card);
-      border-radius: 12px;
-      padding: 1.5rem;
-      height: 100%;
-      border: 1px solid rgba(0,0,0,0.06);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-      transition: all 0.3s ease;
-    }
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-      border-color: var(--yellow);
-    }
+    /* Remove all gallery-related styles */
+        
+        /* Professional Typography */
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+        }
+
+        .display-5 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .lead {
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: #6c757d;
+        }
+
+        /* Section Spacing and Layout */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            margin-bottom: 3.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: #6c757d;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Enhanced Service Card Styles */
+        .service-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #f8f9fa;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ffc107, #ff9800);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            border-color: #ffc107;
+        }
+
+        .service-card h5 {
+            color: #2c3e50;
+            font-weight: 700;
+            margin: 1.5rem 0 1rem;
+            font-size: 1.35rem;
+            line-height: 1.3;
+            transition: color 0.3s ease;
+        }
+
+        .service-card p {
+            color: #6c757d;
+            line-height: 1.7;
+            margin-bottom: 0;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        /* Professional Service Icon Styles */
+        .service-icon {
+            width: 85px;
+            height: 85px;
+            background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 30px rgba(255, 193, 7, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(-10deg);
+            box-shadow: 0 15px 40px rgba(255, 193, 7, 0.4);
+        }
+
+        .service-icon i {
+            font-size: 2rem;
+            color: #fff;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon i {
+            transform: scale(1.1);
+        }
+
+        /* Enhanced Section Styling with Modern Backgrounds */
+         section {
+             position: relative;
+             overflow: hidden;
+         }
+
+         /* What We Do Section - Modern Gradient Background */
+         #services {
+             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
+             position: relative;
+         }
+
+         #services::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             right: 0;
+             bottom: 0;
+             background: 
+                 radial-gradient(circle at 20% 80%, rgba(255, 193, 7, 0.1) 0%, transparent 50%),
+                 radial-gradient(circle at 80% 20%, rgba(255, 152, 0, 0.1) 0%, transparent 50%),
+                 radial-gradient(circle at 40% 40%, rgba(255, 193, 7, 0.05) 0%, transparent 50%);
+             pointer-events: none;
+         }
+
+         /* Industries Section - Sophisticated Pattern Background */
+         #industries {
+             background: linear-gradient(45deg, #ffffff 0%, #f8f9fa 100%);
+             position: relative;
+         }
+
+         #industries::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             right: 0;
+             bottom: 0;
+             background-image: 
+                 linear-gradient(30deg, rgba(255, 193, 7, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(255, 193, 7, 0.03) 87.5%, rgba(255, 193, 7, 0.03)),
+                 linear-gradient(150deg, rgba(255, 193, 7, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(255, 193, 7, 0.03) 87.5%, rgba(255, 193, 7, 0.03)),
+                 linear-gradient(30deg, rgba(255, 152, 0, 0.02) 12%, transparent 12.5%, transparent 87%, rgba(255, 152, 0, 0.02) 87.5%, rgba(255, 152, 0, 0.02)),
+                 linear-gradient(150deg, rgba(255, 152, 0, 0.02) 12%, transparent 12.5%, transparent 87%, rgba(255, 152, 0, 0.02) 87.5%, rgba(255, 152, 0, 0.02));
+             background-size: 80px 80px;
+             pointer-events: none;
+         }
+
+         /* Technology Section - Dynamic Geometric Background */
+         #technology {
+             background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 50%, #fdcb6e 100%);
+             position: relative;
+         }
+
+         #technology::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             right: 0;
+             bottom: 0;
+             background: 
+                 radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
+                 radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+                 linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.1) 50%, transparent 60%);
+             pointer-events: none;
+         }
+
+         /* Enhanced Service Cards with Modern Animations */
+         .service-card {
+             background: rgba(255, 255, 255, 0.95);
+             backdrop-filter: blur(10px);
+             border: 1px solid rgba(255, 255, 255, 0.2);
+             border-radius: 20px;
+             padding: 2.5rem 2rem;
+             text-align: center;
+             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+             position: relative;
+             overflow: hidden;
+             box-shadow: 
+                 0 10px 30px rgba(0, 0, 0, 0.1),
+                 0 1px 8px rgba(0, 0, 0, 0.06);
+             transform: translateY(0);
+         }
+
+         .service-card::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: -100%;
+             width: 100%;
+             height: 100%;
+             background: linear-gradient(90deg, transparent, rgba(255, 193, 7, 0.1), transparent);
+             transition: left 0.6s ease;
+         }
+
+         .service-card:hover::before {
+             left: 100%;
+         }
+
+         .service-card:hover {
+             transform: translateY(-10px) scale(1.02);
+             box-shadow: 
+                 0 20px 60px rgba(0, 0, 0, 0.15),
+                 0 5px 20px rgba(255, 193, 7, 0.2);
+             border-color: rgba(255, 193, 7, 0.3);
+         }
+
+         /* Enhanced Section Headers */
+         .section-header {
+             position: relative;
+             z-index: 2;
+             margin-bottom: 4rem;
+         }
+
+         .section-subtitle {
+             font-size: 0.9rem;
+             font-weight: 600;
+             text-transform: uppercase;
+             letter-spacing: 2px;
+             color: var(--orange);
+             margin-bottom: 1rem;
+             position: relative;
+             display: inline-block;
+         }
+
+         .section-subtitle::after {
+             content: '';
+             position: absolute;
+             bottom: -8px;
+             left: 50%;
+             transform: translateX(-50%);
+             width: 60px;
+             height: 3px;
+             background: linear-gradient(90deg, var(--yellow), var(--orange));
+             border-radius: 2px;
+         }
+
+         /* Smooth Scroll Animations */
+         @keyframes fadeInUp {
+             from {
+                 opacity: 0;
+                 transform: translateY(30px);
+             }
+             to {
+                 opacity: 1;
+                 transform: translateY(0);
+             }
+         }
+
+         @keyframes fadeInLeft {
+             from {
+                 opacity: 0;
+                 transform: translateX(-30px);
+             }
+             to {
+                 opacity: 1;
+                 transform: translateX(0);
+             }
+         }
+
+         @keyframes fadeInRight {
+             from {
+                 opacity: 0;
+                 transform: translateX(30px);
+             }
+             to {
+                 opacity: 1;
+                 transform: translateX(0);
+             }
+         }
+
+         /* Animation Classes */
+         .animate-on-scroll {
+             opacity: 0;
+             transition: all 0.6s ease;
+         }
+
+         .animate-on-scroll.animated {
+             opacity: 1;
+         }
+
+         .fade-in-up.animated {
+             animation: fadeInUp 0.8s ease forwards;
+         }
+
+         .fade-in-left.animated {
+             animation: fadeInLeft 0.8s ease forwards;
+         }
+
+         .fade-in-right.animated {
+             animation: fadeInRight 0.8s ease forwards;
+         }
+
+         /* Staggered Animation Delays */
+         .service-card:nth-child(1) { animation-delay: 0.1s; }
+         .service-card:nth-child(2) { animation-delay: 0.2s; }
+         .service-card:nth-child(3) { animation-delay: 0.3s; }
+         .service-card:nth-child(4) { animation-delay: 0.4s; }
+         .service-card:nth-child(5) { animation-delay: 0.5s; }
+         .service-card:nth-child(6) { animation-delay: 0.6s; }
+         .tech-icon {
+             width: 85px;
+             height: 85px;
+             background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+             border-radius: 50%;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             margin: 0 auto 1.5rem;
+             box-shadow: 0 10px 30px rgba(255, 193, 7, 0.3);
+             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+             position: relative;
+         }
+
+         .tech-card::before {
+             background: linear-gradient(90deg, #ffc107, #ff9800);
+         }
+
+         .tech-card:hover {
+             border-color: #ffc107;
+         }
+
+         .tech-card:hover .tech-icon {
+             transform: scale(1.1) rotate(-10deg);
+             box-shadow: 0 15px 40px rgba(255, 193, 7, 0.4);
+         }
+
+        .tech-icon i {
+            font-size: 2rem;
+            color: #fff;
+            transition: transform 0.3s ease;
+        }
+
+        .tech-card:hover .tech-icon i {
+            transform: scale(1.1);
+        }
+
+        /* Improved Grid Layout */
+        .row.g-4 {
+            --bs-gutter-x: 2rem;
+            --bs-gutter-y: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .row.g-4 {
+                --bs-gutter-x: 1.5rem;
+                --bs-gutter-y: 1.5rem;
+            }
+            
+            .service-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+        }
+    
+    /* Remove service image styling - no longer needed */
     
     /* Footer hover effects */
     footer a.text-muted {
@@ -227,87 +645,119 @@
   <!-- SERVICES -->
   <section id="services" class="pt-4 pb-6 bg-transparent">
     <div class="container">
-      <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="fw-bold">What We Do</h2>
-        <p class="text-muted small mb-0">End-to-end packaging & printing solutions across industries.</p>
+      <div class="section-header text-center animate-on-scroll fade-in-up">
+        <div class="section-subtitle">Our Services</div>
+        <h2 class="display-5 mb-3">What We Do</h2>
+        <p class="lead mx-auto" style="max-width: 600px;">We provide comprehensive printing and packaging solutions with cutting-edge technology and exceptional quality standards.</p>
       </div>
 
       <div class="row g-4">
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card">
-            <div class="d-flex align-items-start gap-3">
-              <i class="bi bi-printer fs-2 text-warning"></i>
-              <div>
-                <h5 class="mb-1">Custom Printing</h5>
-                <p class="small text-muted mb-1">High-quality reel printing, labels, shrink sleeves, and branding solutions.</p>
-                <small class="text-muted">Flexographic & digital setups for vibrant results.</small>
-              </div>
+        <div class="col-md-4 mb-4">
+          <div class="service-card animate-on-scroll fade-in-up">
+            <div class="service-icon">
+              <i class="fas fa-print"></i>
             </div>
+            <h5>Flexographic Printing</h5>
+            <p>High-quality flexographic printing for flexible packaging materials with precision and consistency.</p>
           </div>
         </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card">
-            <div class="d-flex align-items-start gap-3">
-              <i class="bi bi-box-seam fs-2 text-warning"></i>
-              <div>
-                <h5 class="mb-1">Plastic & Flexible Packaging</h5>
-                <p class="small text-muted mb-1">Poly bags, zipper lock bags, vacuum bags, and shrink wraps tailored to product needs.</p>
-                <small class="text-muted">Pouch-making, die-cutting & lamination included.</small>
-              </div>
+        <div class="col-md-4 mb-4">
+          <div class="service-card animate-on-scroll fade-in-up">
+            <div class="service-icon">
+              <i class="fas fa-cut"></i>
             </div>
+            <h5>Rotogravure Printing</h5>
+            <p>Premium rotogravure printing services for high-volume production with exceptional detail and color reproduction.</p>
           </div>
         </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card">
-            <div class="d-flex align-items-start gap-3">
-              <i class="bi bi-egg-fried fs-2 text-warning"></i>
-              <div>
-                <h5 class="mb-1">Food-Safe Packaging</h5>
-                <p class="small text-muted mb-1">Disposable containers, blister trays and eco-friendly options for FMCG.</p>
-                <small class="text-muted">BPA-free plastics & rigorous product testing.</small>
-              </div>
+        <div class="col-md-4 mb-4">
+          <div class="service-card animate-on-scroll fade-in-up">
+            <div class="service-icon">
+              <i class="fas fa-layer-group"></i>
             </div>
+            <h5>Lamination Services</h5>
+            <p>Advanced lamination techniques to enhance durability and barrier properties of packaging materials.</p>
           </div>
         </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card">
-            <div class="d-flex align-items-start gap-3">
-              <i class="bi bi-globe fs-2 text-warning"></i>
-              <div>
-                <h5 class="mb-1">Export & Supply</h5>
-                <p class="small text-muted mb-1">Reliable packaging solutions supplied to local and international markets.</p>
-                <small class="text-muted">Quality assurance for export standards.</small>
-              </div>
+        <div class="col-md-4 mb-4">
+          <div class="service-card animate-on-scroll fade-in-left">
+            <div class="service-icon">
+              <i class="fas fa-cut"></i>
             </div>
+            <h5>Slitting & Converting</h5>
+            <p>Precision slitting and converting services to meet exact specifications for various packaging applications.</p>
           </div>
         </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card">
-            <div class="d-flex align-items-start gap-3">
-              <i class="bi bi-award fs-2 text-warning"></i>
-              <div>
-                <h5 class="mb-1">Quality Assurance</h5>
-                <p class="small text-muted mb-1">In-house QC lab for batch sampling, defect detection and compliance.</p>
-                <small class="text-muted">ISO 9001 protocols & tamper-evident designs.</small>
-              </div>
+        <div class="col-md-4 mb-4">
+          <div class="service-card animate-on-scroll fade-in-up">
+            <div class="service-icon">
+              <i class="fas fa-box"></i>
             </div>
+            <h5>Pouch Making</h5>
+            <p>Custom pouch manufacturing with various closure options and barrier properties for different products.</p>
           </div>
         </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card">
-            <div class="d-flex align-items-start gap-3">
-              <i class="bi bi-lightbulb fs-2 text-warning"></i>
-              <div>
-                <h5 class="mb-1">R&D & Innovation</h5>
-                <p class="small text-muted mb-1">Sustainable materials research and anti-counterfeit solutions.</p>
-                <small class="text-muted">Customized, traceable packaging & secure labels.</small>
-              </div>
+        <div class="col-md-4 mb-4">
+          <div class="service-card animate-on-scroll fade-in-right">
+            <div class="service-icon">
+              <i class="fas fa-cogs"></i>
             </div>
+            <h5>Quality Control</h5>
+            <p>Comprehensive quality control processes ensuring consistent product quality and customer satisfaction.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="service-card animate-on-scroll fade-in-left">
+            <div class="service-icon">
+              <i class="fas fa-industry"></i>
+            </div>
+            <h5>Food & Beverage</h5>
+            <p>Specialized packaging solutions for food safety, freshness preservation, and regulatory compliance.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="service-card animate-on-scroll fade-in-up">
+            <div class="service-icon">
+              <i class="fas fa-pills"></i>
+            </div>
+            <h5>Pharmaceutical</h5>
+            <p>High-barrier packaging for pharmaceutical products with tamper-evident and child-resistant features.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="service-card animate-on-scroll fade-in-right">
+            <div class="service-icon">
+              <i class="fas fa-shopping-bag"></i>
+            </div>
+            <h5>Consumer Goods</h5>
+            <p>Attractive and functional packaging solutions for consumer products and retail applications.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="service-card animate-on-scroll fade-in-left">
+            <div class="service-icon">
+              <i class="fas fa-seedling"></i>
+            </div>
+            <h5>Agriculture</h5>
+            <p>Durable packaging for agricultural products, seeds, and fertilizers with moisture protection.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="service-card animate-on-scroll fade-in-up">
+            <div class="service-icon">
+              <i class="fas fa-paw"></i>
+            </div>
+            <h5>Pet Food</h5>
+            <p>Specialized packaging for pet food products with extended shelf life and freshness retention.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="service-card animate-on-scroll fade-in-right">
+            <div class="service-icon">
+              <i class="fas fa-spray-can"></i>
+            </div>
+            <h5>Chemical & Industrial</h5>
+            <p>Chemical-resistant packaging solutions for industrial applications and hazardous materials.</p>
           </div>
         </div>
 
@@ -319,83 +769,171 @@
   <!-- INDUSTRIES WE SERVE -->
   <section id="industries" class="pt-6 pb-6">
     <div class="container">
-      <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="fw-bold">Industries we serve</h2>
-        <p class="text-muted small mb-0">Tailored printing & packaging across sectors.</p>
+      <div class="section-header text-center animate-on-scroll fade-in-up">
+        <div class="section-subtitle">Our Expertise</div>
+        <h2 class="display-5 mb-3">Industries We Serve</h2>
+        <p class="lead mx-auto" style="max-width: 650px;">We partner with diverse industries to deliver specialized printing and packaging solutions that meet unique sector requirements and regulatory standards.</p>
       </div>
 
       <div class="row g-4">
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card h-100">
-            <div class="d-flex align-items-start gap-3">
-              <i class="bi bi-basket2 fs-2 text-warning"></i>
-              <div>
-                <h5 class="mb-1">Food</h5>
-                <p class="small text-muted mb-0">Packaging for snacks, rice, spices</p>
-              </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="service-card animate-on-scroll fade-in-left">
+            <div class="service-icon">
+              <i class="fas fa-utensils"></i>
             </div>
+            <h5>Food & Beverage</h5>
+            <p>FDA-compliant packaging solutions for food safety, freshness preservation, and attractive product presentation that drives consumer engagement.</p>
           </div>
         </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="service-card animate-on-scroll fade-in-up">
+            <div class="service-icon">
+              <i class="fas fa-pills"></i>
+            </div>
+            <h5>Pharmaceuticals</h5>
+            <p>Secure, tamper-evident packaging with precise labeling and compliance features for pharmaceutical products and medical devices.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="service-card animate-on-scroll fade-in-up">
+            <div class="service-icon">
+              <i class="fas fa-tshirt"></i>
+            </div>
+            <h5>Fashion & Retail</h5>
+            <p>Premium packaging and branding materials that enhance product presentation and create memorable unboxing experiences for customers.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="service-card animate-on-scroll fade-in-right">
+            <div class="service-icon">
+              <i class="fas fa-laptop"></i>
+            </div>
+            <h5>Electronics</h5>
+            <p>Anti-static, protective packaging solutions designed to safeguard sensitive electronic components during shipping and storage.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="service-card animate-on-scroll fade-in-left">
+            <div class="service-icon">
+              <i class="fas fa-spa"></i>
+            </div>
+            <h5>Cosmetics</h5>
+            <p>Elegant, sustainable packaging that reflects brand luxury while ensuring product integrity and compliance with beauty industry standards.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="service-card animate-on-scroll fade-in-up">
+            <div class="service-icon">
+              <i class="fas fa-car"></i>
+            </div>
+            <h5>Automotive</h5>
+            <p>Durable, industrial-grade packaging for automotive parts and components, ensuring protection during transportation and storage.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-home"></i>
+            </div>
+            <h5>Home & Garden</h5>
+            <p>Versatile packaging solutions for home improvement and garden products, combining functionality with attractive retail presentation.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-gamepad"></i>
+            </div>
+            <h5>Entertainment</h5>
+            <p>Creative packaging for games, media, and entertainment products that captures attention and enhances the consumer experience.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card h-100">
-            <div class="d-flex align-items-start gap-3">
-              <i class="bi bi-bag fs-2 text-warning"></i>
-              <div>
-                <h5 class="mb-1">Retail</h5>
-                <p class="small text-muted mb-0">Carry bags and promotional packaging for retail.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+  <!-- TECHNOLOGY & EQUIPMENT -->
+  <section id="technology" class="pt-6 pb-6">
+    <div class="container">
+      <div class="section-header text-center animate-on-scroll fade-in-up">
+        <div class="section-subtitle">Innovation & Technology</div>
+        <h2 class="display-5 mb-3">Technology & Equipment</h2>
+        <p class="lead mx-auto" style="max-width: 700px;">State-of-the-art machinery and cutting-edge technology enable us to deliver superior quality products with precision, efficiency, and consistency.</p>
+      </div>
 
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card h-100">
-            <div class="d-flex align-items-start gap-3">
-              <i class="bi bi-flower3 fs-2 text-warning"></i>
-              <div>
-                <h5 class="mb-1">Cosmetics & Personal Care</h5>
-                <p class="small text-muted mb-0">Pouches and labels for beauty & hygiene products</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card h-100">
-            <div class="d-flex align-items-start gap-3">
-              <i class="bi bi-handbag fs-2 text-warning"></i>
-              <div>
-                <h5 class="mb-1">Fashion & Apparel</h5>
-                <p class="small text-muted mb-0">Packaging for clothing, shoes, and accessories.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card h-100">
-            <div class="d-flex align-items-start gap-3">
-              <i class="bi bi-capsule-pill fs-2 text-warning"></i>
-              <div>
-                <h5 class="mb-1">Pharmaceuticals</h5>
-                <p class="small text-muted mb-0">Packaging such as blister packs, medication labels</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card h-100">
-            <div class="d-flex align-items-start gap-3">
-              <i class="bi bi-droplet fs-2 text-warning"></i>
-              <div>
-                <h5 class="mb-1">Beverages</h5>
-                <p class="small text-muted mb-0">Labels and packaging for drinks and liquid products</p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6">
+           <div class="service-card tech-card animate-on-scroll fade-in-left">
+             <div class="tech-icon">
+               <i class="fas fa-cogs"></i>
+             </div>
+             <h5>Advanced Technology</h5>
+             <p>Cutting-edge printing and packaging technology for superior quality output and enhanced production capabilities.</p>
+           </div>
+         </div>
+         <div class="col-lg-3 col-md-6">
+           <div class="service-card tech-card animate-on-scroll fade-in-up">
+             <div class="tech-icon">
+               <i class="fas fa-print"></i>
+             </div>
+             <h5>Rotogravure Printing</h5>
+             <p>High-speed rotogravure printers for large-volume production with exceptional print quality and color consistency.</p>
+           </div>
+         </div>
+         <div class="col-lg-3 col-md-6">
+           <div class="service-card tech-card animate-on-scroll fade-in-up">
+             <div class="tech-icon">
+               <i class="fas fa-layer-group"></i>
+             </div>
+             <h5>Lamination Lines</h5>
+             <p>Advanced lamination equipment for enhanced strength, barrier properties, and product protection in packaging applications.</p>
+           </div>
+         </div>
+         <div class="col-lg-3 col-md-6">
+           <div class="service-card tech-card animate-on-scroll fade-in-right">
+             <div class="tech-icon">
+               <i class="fas fa-desktop"></i>
+             </div>
+             <h5>Digital Printing</h5>
+             <p>State-of-the-art digital printing setups for short-run and custom jobs with quick turnaround times and variable data capabilities.</p>
+           </div>
+         </div>
+         <div class="col-lg-3 col-md-6">
+           <div class="service-card tech-card animate-on-scroll fade-in-left">
+             <div class="tech-icon">
+               <i class="fas fa-cut"></i>
+             </div>
+             <h5>Die-cutting & Slitting</h5>
+             <p>Precision die-cutting and slitting units for accurate shaping and sizing with minimal waste and maximum efficiency.</p>
+           </div>
+         </div>
+         <div class="col-lg-3 col-md-6">
+           <div class="service-card tech-card animate-on-scroll fade-in-up">
+             <div class="tech-icon">
+               <i class="fas fa-box-open"></i>
+             </div>
+             <h5>Pouch-making Machinery</h5>
+             <p>Versatile pouch-making equipment for various packaging formats with automated sealing and quality control systems.</p>
+           </div>
+         </div>
+         <div class="col-lg-3 col-md-6">
+           <div class="service-card tech-card animate-on-scroll fade-in-up">
+             <div class="tech-icon">
+               <i class="fas fa-microscope"></i>
+             </div>
+             <h5>Quality Control Lab</h5>
+             <p>In-house quality control laboratory for batch sampling, product integrity checks, and comprehensive defect detection.</p>
+           </div>
+         </div>
+         <div class="col-lg-3 col-md-6">
+           <div class="service-card tech-card animate-on-scroll fade-in-right">
+             <div class="tech-icon">
+               <i class="fas fa-stamp"></i>
+             </div>
+             <h5>Flexographic Printing</h5>
+             <p>High-quality flexographic printing machines for efficient, cost-effective production with excellent color reproduction.</p>
+           </div>
+         </div>
       </div>
     </div>
   </section>
@@ -445,5 +983,43 @@
   </footer>
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Smooth Scroll Animation Script -->
+  <script>
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with animation classes
+    document.addEventListener('DOMContentLoaded', () => {
+      const animatedElements = document.querySelectorAll('.animate-on-scroll');
+      animatedElements.forEach(el => observer.observe(el));
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
