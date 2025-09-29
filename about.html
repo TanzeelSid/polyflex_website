@@ -115,13 +115,171 @@
 
     /* Partners section */
     .partners{padding:2.5rem 0;border-top:1px solid rgba(0,0,0,0.06);border-bottom:1px solid rgba(0,0,0,0.06);background:linear-gradient(180deg, var(--cream), #FFF8ED)}
-    .partners-home{margin-top:2.5rem;background:#ffffff; border:1px solid rgba(0,0,0,0.08); border-radius:14px; padding:1rem 1.25rem; box-shadow: 0 10px 30px rgba(0,0,0,0.03)}
-    .partner-logos{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;align-items:center;justify-items:center}
-    .partner-logos img{width:200px;height:200px;object-fit:contain;border-radius:12px;padding:.5rem;background:rgba(0,0,0,0.01);opacity:.95;transition:opacity .25s ease, transform .25s ease, box-shadow .25s ease, background .25s ease}
-    .partners-title{font-weight:700;letter-spacing:0;font-size:2rem;background:linear-gradient(90deg,var(--orange),var(--yellow));-webkit-background-clip:text;background-clip:text;color:transparent}
-    .partner-logos img:hover{opacity:1;transform:translateY(-2px) scale(1.02);box-shadow:0 10px 28px rgba(0,0,0,0.08), 0 0 0 1px var(--yellow) inset;background:#ffffff}
-    @media (max-width:991px){.partner-logos{grid-template-columns:repeat(3,1fr)} .partner-logos img{width:140px;height:140px} .partners-title{font-size:1.6rem}}
-    @media (max-width:575px){.partner-logos{grid-template-columns:repeat(2,1fr)} .partner-logos img{width:110px;height:110px} .partners-title{font-size:1.35rem}}
+    /* Partners Section - Synchronized Sliders */
+.partners-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.partners-title {
+  font-weight: 700;
+  letter-spacing: 0;
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, var(--orange), var(--yellow));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.partner-slider-container {
+  position: relative;
+  overflow: hidden;
+  height: 120px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(250, 177, 47, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.partner-slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.partner-track {
+  display: flex;
+  width: 200%;
+  height: 100%;
+  animation: slideRightToLeft 20s linear infinite;
+}
+
+.partner-track.reverse {
+  animation: slideLeftToRight 20s linear infinite;
+}
+
+.partner-slide {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+  height: 100%;
+  gap: 40px;
+  padding: 0 20px;
+}
+
+.partner-slide img {
+  height: 80px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  border-radius: 8px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  opacity: 0.85;
+  transition: all 0.3s ease-in-out;
+  filter: grayscale(20%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.partner-slide img:hover {
+  opacity: 1;
+  transform: scale(1.05);
+  filter: grayscale(0%);
+  box-shadow: 0 8px 24px rgba(250, 177, 47, 0.2);
+}
+
+/* Keyframe Animations */
+@keyframes slideRightToLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes slideLeftToRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Note: Hover pause is handled by JavaScript for better control */
+
+/* Responsive Design */
+@media (max-width: 991px) {
+  .partners-title {
+    font-size: 2rem;
+  }
+  
+  .partner-slider-container {
+    height: 100px;
+  }
+  
+  .partner-slide img {
+    height: 60px;
+    max-width: 120px;
+  }
+  
+  .partner-slide {
+    gap: 30px;
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .partners-title {
+    font-size: 1.8rem;
+  }
+  
+  .partner-slider-container {
+    height: 90px;
+  }
+  
+  .partner-slide img {
+    height: 50px;
+    max-width: 100px;
+  }
+  
+  .partner-slide {
+    gap: 25px;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .partners-title {
+    font-size: 1.5rem;
+  }
+  
+  .partner-slider-container {
+    height: 80px;
+  }
+  
+  .partner-slide img {
+    height: 40px;
+    max-width: 80px;
+  }
+  
+  .partner-slide {
+    gap: 20px;
+    padding: 0 8px;
+  }
+}
+
+/* Legacy Partners Styles - Keep for compatibility */
+.partners-home{margin-top:2.5rem;background:#ffffff; border:1px solid rgba(0,0,0,0.08); border-radius:14px; padding:1rem 1.25rem; box-shadow: 0 10px 30px rgba(0,0,0,0.03)}
+.partner-logos{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;align-items:center;justify-items:center}
+.partner-logos img{width:200px;height:200px;object-fit:contain;border-radius:12px;padding:.5rem;background:rgba(0,0,0,0.01);opacity:.95;transition:opacity .25s ease, transform .25s ease, box-shadow .25s ease, background .25s ease}
+.partner-logos img:hover{opacity:1;transform:translateY(-2px) scale(1.02);box-shadow:0 10px 28px rgba(0,0,0,0.08), 0 0 0 1px var(--yellow) inset;background:#ffffff}
+@media (max-width:991px){.partner-logos{grid-template-columns:repeat(3,1fr)} .partner-logos img{width:140px;height:140px}}
+@media (max-width:575px){.partner-logos{grid-template-columns:repeat(2,1fr)} .partner-logos img{width:110px;height:110px}}
 
     /* Footer hover effects */
     footer a.text-muted {
@@ -707,21 +865,75 @@
     }
   </style>
 
-  <!-- Partners section -->
-  <div class="partners-home container mt-5 mb-5">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-      <h3 class="mb-0 partners-title">Trusted by</h3>
-      <small>Selected partners & clients</small>
+  <!-- Partners section - Redesigned with Synchronized Sliders -->
+  <section class="partners-section py-5" style="background: linear-gradient(135deg, var(--cream) 0%, #FFF8ED 50%, var(--cream) 100%); position: relative; overflow: hidden;">
+    <!-- Decorative Background Elements -->
+    <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(250, 177, 47, 0.08) 0%, transparent 70%); border-radius: 50%;"></div>
+    <div style="position: absolute; bottom: -30px; left: -30px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(250, 129, 47, 0.06) 0%, transparent 70%); border-radius: 50%;"></div>
+    
+    <div class="container">
+      <!-- Section Header -->
+      <div class="text-center mb-5">
+        <h2 class="partners-title mb-2">Trusted by Industry Leaders</h2>
+        <p class="text-muted mb-0">Selected partners & clients who trust our packaging solutions</p>
+        <div class="title-divider mx-auto mt-3" style="width: 80px; height: 4px; background: linear-gradient(90deg, var(--orange), var(--yellow)); border-radius: 2px;"></div>
+      </div>
+      
+      <!-- Top Slider - Right to Left -->
+      <div class="partner-slider-container mb-4" id="topSliderContainer">
+        <div class="partner-slider" id="topSlider" aria-label="Partner logos slider - right to left">
+          <div class="partner-track" id="topTrack">
+            <div class="partner-slide">
+              <img src="company1.jpeg" alt="Partner 1" loading="lazy">
+              <img src="company2.jpeg" alt="Partner 2" loading="lazy">
+              <img src="company3.jpeg" alt="Partner 3" loading="lazy">
+              <img src="company4.jpeg" alt="Partner 4" loading="lazy">
+              <img src="company5.jpeg" alt="Partner 5" loading="lazy">
+              <img src="company6.jpeg" alt="Partner 6" loading="lazy">
+              <img src="company7.jpeg" alt="Partner 7" loading="lazy">
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="partner-slide">
+              <img src="company1.jpeg" alt="Partner 1" loading="lazy">
+              <img src="company2.jpeg" alt="Partner 2" loading="lazy">
+              <img src="company3.jpeg" alt="Partner 3" loading="lazy">
+              <img src="company4.jpeg" alt="Partner 4" loading="lazy">
+              <img src="company5.jpeg" alt="Partner 5" loading="lazy">
+              <img src="company6.jpeg" alt="Partner 6" loading="lazy">
+              <img src="company7.jpeg" alt="Partner 7" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Bottom Slider - Left to Right -->
+      <div class="partner-slider-container" id="bottomSliderContainer">
+        <div class="partner-slider" id="bottomSlider" aria-label="Partner logos slider - left to right">
+          <div class="partner-track reverse" id="bottomTrack">
+            <div class="partner-slide">
+              <img src="company7.jpeg" alt="Partner 7" loading="lazy">
+              <img src="company6.jpeg" alt="Partner 6" loading="lazy">
+              <img src="company5.jpeg" alt="Partner 5" loading="lazy">
+              <img src="company4.jpeg" alt="Partner 4" loading="lazy">
+              <img src="company3.jpeg" alt="Partner 3" loading="lazy">
+              <img src="company2.jpeg" alt="Partner 2" loading="lazy">
+              <img src="company1.jpeg" alt="Partner 1" loading="lazy">
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="partner-slide">
+              <img src="company7.jpeg" alt="Partner 7" loading="lazy">
+              <img src="company6.jpeg" alt="Partner 6" loading="lazy">
+              <img src="company5.jpeg" alt="Partner 5" loading="lazy">
+              <img src="company4.jpeg" alt="Partner 4" loading="lazy">
+              <img src="company3.jpeg" alt="Partner 3" loading="lazy">
+              <img src="company2.jpeg" alt="Partner 2" loading="lazy">
+              <img src="company1.jpeg" alt="Partner 1" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="partner-logos">
-      <img src="company1.jpeg" alt="Partner 1">
-      <img src="company2.jpeg" alt="Partner 2">
-      <img src="company3.jpeg" alt="Partner 3">
-      <img src="company4.jpeg" alt="Partner 4">
-      <img src="company5.jpeg" alt="Partner 5">
-      <img src="company6.jpeg" alt="Partner 6">
-    </div>
-  </div>
+  </section>
 
   <!-- FOOTER -->
   <footer>
@@ -781,6 +993,193 @@
       });
     }
     updateActiveNav();
+
+    // Partner Sliders Manager
+    class PartnerSlidersManager {
+      constructor() {
+        this.topSlider = null;
+        this.bottomSlider = null;
+        this.isInitialized = false;
+        this.animationSpeed = 20; // seconds for full cycle
+        this.isVisible = false;
+        
+        this.init = this.init.bind(this);
+        this.handleVisibilityChange = this.handleVisibilityChange.bind(this);
+        this.handleResize = this.handleResize.bind(this);
+      }
+
+      init() {
+        try {
+          this.topSlider = document.getElementById('topTrack');
+          this.bottomSlider = document.getElementById('bottomTrack');
+          
+          if (!this.topSlider || !this.bottomSlider) {
+            console.warn('Partner sliders not found');
+            return;
+          }
+
+          this.setupIntersectionObserver();
+          this.setupEventListeners();
+          this.adjustAnimationSpeed();
+          this.isInitialized = true;
+          
+          console.log('Partner sliders initialized successfully');
+        } catch (error) {
+          console.error('Error initializing partner sliders:', error);
+        }
+      }
+
+      setupIntersectionObserver() {
+        const options = {
+          root: null,
+          rootMargin: '50px',
+          threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            this.isVisible = entry.isIntersecting;
+            this.handleVisibilityChange();
+          });
+        }, options);
+
+        const partnersSection = document.querySelector('.partners-section');
+        if (partnersSection) {
+          observer.observe(partnersSection);
+        }
+      }
+
+      handleVisibilityChange() {
+        if (!this.topSlider || !this.bottomSlider) return;
+
+        if (this.isVisible) {
+          // Resume animations when visible
+          this.topSlider.style.animationPlayState = 'running';
+          this.bottomSlider.style.animationPlayState = 'running';
+        } else {
+          // Pause animations when not visible for performance
+          this.topSlider.style.animationPlayState = 'paused';
+          this.bottomSlider.style.animationPlayState = 'paused';
+        }
+      }
+
+      setupEventListeners() {
+        // Pause on hover for better UX
+        const containers = document.querySelectorAll('.partner-slider-container');
+        
+        containers.forEach(container => {
+          container.addEventListener('mouseenter', () => {
+            if (this.topSlider && this.bottomSlider) {
+              this.topSlider.style.animationPlayState = 'paused';
+              this.bottomSlider.style.animationPlayState = 'paused';
+            }
+          });
+
+          container.addEventListener('mouseleave', () => {
+            if (this.topSlider && this.bottomSlider && this.isVisible) {
+              this.topSlider.style.animationPlayState = 'running';
+              this.bottomSlider.style.animationPlayState = 'running';
+            }
+          });
+
+          // Accessibility: pause on focus
+          container.addEventListener('focusin', () => {
+            if (this.topSlider && this.bottomSlider) {
+              this.topSlider.style.animationPlayState = 'paused';
+              this.bottomSlider.style.animationPlayState = 'paused';
+            }
+          });
+
+          container.addEventListener('focusout', () => {
+            if (this.topSlider && this.bottomSlider && this.isVisible) {
+              setTimeout(() => {
+                this.topSlider.style.animationPlayState = 'running';
+                this.bottomSlider.style.animationPlayState = 'running';
+              }, 300);
+            }
+          });
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', this.handleResize);
+      }
+
+      adjustAnimationSpeed() {
+        if (!this.topSlider || !this.bottomSlider) return;
+
+        const screenWidth = window.innerWidth;
+        let speed = this.animationSpeed;
+
+        // Adjust speed based on screen size for better mobile experience
+        if (screenWidth <= 575) {
+          speed = this.animationSpeed * 0.8; // Slower on mobile
+        } else if (screenWidth <= 768) {
+          speed = this.animationSpeed * 0.9; // Slightly slower on tablet
+        }
+
+        this.topSlider.style.animationDuration = `${speed}s`;
+        this.bottomSlider.style.animationDuration = `${speed}s`;
+      }
+
+      handleResize() {
+        // Debounce resize handling
+        clearTimeout(this.resizeTimeout);
+        this.resizeTimeout = setTimeout(() => {
+          this.adjustAnimationSpeed();
+        }, 250);
+      }
+
+      // Method to restart animations (useful for dynamic content updates)
+      restartAnimations() {
+        if (!this.topSlider || !this.bottomSlider) return;
+
+        // Temporarily remove animation
+        this.topSlider.style.animation = 'none';
+        this.bottomSlider.style.animation = 'none';
+
+        // Force reflow
+        this.topSlider.offsetHeight;
+        this.bottomSlider.offsetHeight;
+
+        // Restore animation
+        this.topSlider.style.animation = '';
+        this.bottomSlider.style.animation = '';
+        
+        this.adjustAnimationSpeed();
+      }
+
+      // Performance optimization: reduce motion for users who prefer it
+      respectReducedMotion() {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        if (prefersReducedMotion && this.topSlider && this.bottomSlider) {
+          this.topSlider.style.animationDuration = '60s'; // Much slower
+          this.bottomSlider.style.animationDuration = '60s';
+        }
+      }
+
+      destroy() {
+        window.removeEventListener('resize', this.handleResize);
+        clearTimeout(this.resizeTimeout);
+        this.isInitialized = false;
+      }
+    }
+
+    // Initialize Partner Sliders
+    let partnerSlidersManager;
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        partnerSlidersManager = new PartnerSlidersManager();
+        partnerSlidersManager.init();
+        partnerSlidersManager.respectReducedMotion();
+      });
+    } else {
+      partnerSlidersManager = new PartnerSlidersManager();
+      partnerSlidersManager.init();
+      partnerSlidersManager.respectReducedMotion();
+    }
   });
   </script>
 

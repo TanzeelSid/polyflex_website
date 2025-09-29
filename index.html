@@ -11,6 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <!-- Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
   <style>
     :root{
@@ -69,108 +71,638 @@
 
     /* Partners section */
     .partners{padding:2.5rem 0;border-top:1px solid rgba(0,0,0,0.06);border-bottom:1px solid rgba(0,0,0,0.06);background:linear-gradient(180deg, var(--cream), #FFF8ED)}
-    .partners-home{margin-top:2.5rem;background:#ffffff; border:1px solid rgba(0,0,0,0.08); border-radius:14px; padding:1rem 1.25rem; box-shadow: 0 10px 30px rgba(0,0,0,0.03)}
-    .partner-logos{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;align-items:center;justify-items:center}
-    .partner-logos img{width:200px;height:200px;object-fit:contain;border-radius:12px;padding:.5rem;background:rgba(0,0,0,0.01);opacity:.95;transition:opacity .25s ease, transform .25s ease, box-shadow .25s ease, background .25s ease}
-    .partners-title{font-weight:700;letter-spacing:0;font-size:2rem;background:linear-gradient(90deg,var(--orange),var(--yellow));-webkit-background-clip:text;background-clip:text;color:transparent}
-    .partner-logos img:hover{opacity:1;transform:translateY(-2px) scale(1.02);box-shadow:0 10px 28px rgba(0,0,0,0.08), 0 0 0 1px var(--yellow) inset;background:#ffffff}
-    @media (max-width:991px){.partner-logos{grid-template-columns:repeat(3,1fr)} .partner-logos img{width:140px;height:140px} .partners-title{font-size:1.6rem}}
-    @media (max-width:575px){.partner-logos{grid-template-columns:repeat(2,1fr)} .partner-logos img{width:110px;height:110px} .partners-title{font-size:1.35rem}}
+    /* Partners Section - Synchronized Sliders */
+.partners-section {
+  position: relative;
+  overflow: hidden;
+}
 
-    /* Testimonials */
-    .testimonials{
-      padding:5rem 15px;
-      background: linear-gradient(135deg, rgba(255,193,7,0.06) 0%, rgba(255,87,34,0.09) 50%, rgba(63,81,181,0.06) 100%);
-      border-top:2px solid rgba(255,193,7,0.25);
-      border-bottom:2px solid rgba(255,193,7,0.25);
+.partners-title {
+  font-weight: 700;
+  letter-spacing: 0;
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, var(--orange), var(--yellow));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.partner-slider-container {
+  position: relative;
+  overflow: hidden;
+  height: 120px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(250, 177, 47, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.partner-slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.partner-track {
+  display: flex;
+  width: 200%;
+  height: 100%;
+  animation: slideRightToLeft 20s linear infinite;
+}
+
+.partner-track.reverse {
+  animation: slideLeftToRight 20s linear infinite;
+}
+
+.partner-slide {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+  height: 100%;
+  gap: 40px;
+  padding: 0 20px;
+}
+
+.partner-slide img {
+  height: 80px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  border-radius: 8px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  opacity: 0.85;
+  transition: all 0.3s ease-in-out;
+  filter: grayscale(20%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.partner-slide img:hover {
+  opacity: 1;
+  transform: scale(1.05);
+  filter: grayscale(0%);
+  box-shadow: 0 8px 24px rgba(250, 177, 47, 0.2);
+}
+
+/* Keyframe Animations */
+@keyframes slideRightToLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes slideLeftToRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Pause animation on hover for better UX */
+.partner-slider-container:hover .partner-track {
+  animation-play-state: paused;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+  .partners-title {
+    font-size: 2rem;
+  }
+  
+  .partner-slider-container {
+    height: 100px;
+  }
+  
+  .partner-slide img {
+    height: 60px;
+    max-width: 120px;
+  }
+  
+  .partner-slide {
+    gap: 30px;
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .partners-title {
+    font-size: 1.8rem;
+  }
+  
+  .partner-slider-container {
+    height: 90px;
+  }
+  
+  .partner-slide img {
+    height: 50px;
+    max-width: 100px;
+  }
+  
+  .partner-slide {
+    gap: 25px;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .partners-title {
+    font-size: 1.5rem;
+  }
+  
+  .partner-slider-container {
+    height: 80px;
+  }
+  
+  .partner-slide img {
+    height: 40px;
+    max-width: 80px;
+  }
+  
+  .partner-slide {
+    gap: 20px;
+    padding: 0 8px;
+  }
+}
+
+/* Legacy Partners Styles - Keep for other pages */
+.partners-home{margin-top:2.5rem;background:#ffffff; border:1px solid rgba(0,0,0,0.08); border-radius:14px; padding:1rem 1.25rem; box-shadow: 0 10px 30px rgba(0,0,0,0.03)}
+.partner-logos{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;align-items:center;justify-items:center}
+.partner-logos img{width:200px;height:200px;object-fit:contain;border-radius:12px;padding:.5rem;background:rgba(0,0,0,0.01);opacity:.95;transition:opacity .25s ease, transform .25s ease, box-shadow .25s ease, background .25s ease}
+.partner-logos img:hover{opacity:1;transform:translateY(-2px) scale(1.02);box-shadow:0 10px 28px rgba(0,0,0,0.08), 0 0 0 1px var(--yellow) inset;background:#ffffff}
+@media (max-width:991px){.partner-logos{grid-template-columns:repeat(3,1fr)} .partner-logos img{width:140px;height:140px}}
+@media (max-width:575px){.partner-logos{grid-template-columns:repeat(2,1fr)} .partner-logos img{width:110px;height:110px}}
+
+    /* Modern Testimonials Section - Rebuilt */
+    .testimonials-section {
+      padding: 8rem 0;
+      background: linear-gradient(135deg, 
+        rgba(255, 193, 7, 0.03) 0%, 
+        rgba(255, 87, 34, 0.05) 25%,
+        rgba(63, 81, 181, 0.03) 50%,
+        rgba(255, 193, 7, 0.04) 75%,
+        rgba(255, 87, 34, 0.02) 100%);
       position: relative;
       overflow: hidden;
     }
-    .testimonials-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #2c3e50;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      margin-bottom: 1rem;
+
+    .testimonials-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 70%, rgba(255, 193, 7, 0.08) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 30%, rgba(255, 87, 34, 0.06) 0%, transparent 50%);
+      animation: backgroundFloat 20s ease-in-out infinite;
+      pointer-events: none;
     }
-    .testimonials-subtitle {
-      font-size: 1.2rem;
+
+    @keyframes backgroundFloat {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.1); }
+    }
+
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 4rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .testimonials-section .section-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffc107 0%, #ff5722 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .testimonials-section .section-subtitle {
+      font-size: 1.4rem;
       color: #6c757d;
       font-weight: 400;
       margin-bottom: 2rem;
-      max-width: 600px;
+      max-width: 700px;
       margin-left: auto;
       margin-right: auto;
+      line-height: 1.6;
     }
-    .testimonials-divider {
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(90deg, #ffc107, #ff5722);
-      margin: 0 auto 3rem;
-      border-radius: 2px;
-    }
-    
-    /* Add Your Review Button */
-    .btn-add-review {
-      background: linear-gradient(135deg, #ffc107, #ff5722);
-      border: none;
-      color: white;
-      padding: 12px 30px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.3s ease;
+
+    .title-divider {
+      width: 120px;
+      height: 6px;
+      background: linear-gradient(135deg, #ffc107 0%, #ff5722 100%);
+      margin: 0 auto;
+      border-radius: 3px;
       box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
-      display: inline-flex;
-      align-items: center;
-      text-decoration: none;
     }
-    .btn-add-review:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(255, 193, 7, 0.4);
-      background: linear-gradient(135deg, #ffcd38, #ff6b47);
+
+    .testimonials-container {
+      position: relative;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      overflow: hidden;
     }
-    .btn-add-review:active {
-      transform: translateY(0);
+
+    .testimonials-slider {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 20px;
     }
-    .testimonials::before {
+
+    .testimonials-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: transform;
+    }
+
+    .testimonials-grid {
+      display: flex;
+      gap: 2rem;
+      width: calc(100% * 2); /* Accommodate all testimonials for sliding */
+      flex-shrink: 0;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(15px);
+      border-radius: 25px;
+      padding: 3rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 2px solid transparent;
+      box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.08),
+        0 8px 25px rgba(0, 0, 0, 0.05),
+        0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+      min-height: 400px;
+      flex: 0 0 calc(33.333% - 1.33rem); /* 3 cards per view on desktop */
+      min-width: calc(33.333% - 1.33rem);
+      max-width: calc(33.333% - 1.33rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .testimonial-card::before {
       content: '';
       position: absolute;
       top: 0;
-      left: -50%;
-      width: 200%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #ffc107 0%, #ff5722 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 1;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 
+        0 30px 80px rgba(0, 0, 0, 0.15),
+        0 15px 40px rgba(255, 193, 7, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.9) inset;
+    }
+
+    .testimonial-card:hover::before {
+      opacity: 0.05;
+    }
+
+    .testimonial-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .testimonial-quote {
+      font-size: 1.3rem;
+      line-height: 1.8;
+      color: #2c3e50;
+      font-weight: 400;
+      font-style: italic;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .testimonial-quote::before {
+      content: '"';
+      font-size: 4rem;
+      color: rgba(255, 193, 7, 0.2);
+      position: absolute;
+      top: -1rem;
+      left: -1rem;
+      font-family: Georgia, serif;
+      line-height: 1;
+      z-index: -1;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .author-avatar {
+      position: relative;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid transparent;
+      background: linear-gradient(135deg, #ffc107 0%, #ff5722 100%);
+      padding: 2px;
+      transition: all 0.4s ease;
+    }
+
+    .author-avatar img {
+      width: 100%;
       height: 100%;
-      background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
-      animation: shimmer 8s ease-in-out infinite;
-      pointer-events: none;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
     }
-    @keyframes shimmer {
-      0%, 100% { transform: translateX(-100%); }
-      50% { transform: translateX(100%); }
+
+    .testimonial-card:hover .author-avatar {
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
     }
-    .reviews-viewport{overflow:hidden;position:relative;padding:0 15px}
-    .reviews-track{
-      display:flex;
-      gap:30px;
-      align-items:stretch;
-      animation:reviewsScroll 60s linear infinite;
-      transition: transform 0.3s ease;
+
+    .author-info h4 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+      transition: color 0.3s ease;
     }
-    .testimonials:hover .reviews-track{animation-play-state:paused}
-    .review-card{
-      flex:0 0 26%;
-      background: rgba(255,255,255,0.98);
-      backdrop-filter: blur(15px);
-      border:2px solid rgba(255,193,7,0.25);
-      border-radius:24px;
-      padding:2.5rem;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.12), 0 0 0 1px rgba(255,255,255,0.3) inset;
+
+    .author-info .position {
+      font-size: 1rem;
+      color: #7f8c8d;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+    }
+
+    .testimonial-rating {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .testimonial-rating i {
+      color: #ffc107;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-card:hover .testimonial-rating i {
+      transform: scale(1.2) rotate(10deg);
+      color: #ffb300;
+    }
+
+    .testimonials-navigation {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      margin: 3rem 0 2rem 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    .nav-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffc107 0%, #ff5722 100%);
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
       position: relative;
       overflow: hidden;
-      min-height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
+
+    .nav-btn:hover {
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: 0 15px 40px rgba(255, 193, 7, 0.4);
+    }
+
+    .nav-btn:active {
+      transform: translateY(-1px) scale(1.05);
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: 0 4px 15px rgba(255, 193, 7, 0.2);
+    }
+
+    .testimonials-dots {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 193, 7, 0.3);
+      cursor: pointer;
+      transition: all 0.4s ease;
+      border: 2px solid transparent;
+    }
+
+    .dot.active {
+      background: #ffc107;
+      transform: scale(1.4);
+      border-color: rgba(255, 193, 7, 0.5);
+      box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.2);
+    }
+
+    .dot:hover:not(.active) {
+      background: rgba(255, 193, 7, 0.6);
+      transform: scale(1.2);
+    }
+
+    .add-review-section {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .add-review-btn {
+      background: linear-gradient(135deg, #ffc107 0%, #ff5722 100%);
+      border: none;
+      color: white;
+      padding: 18px 40px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 8px 30px rgba(255, 193, 7, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .add-review-btn:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 15px 50px rgba(255, 193, 7, 0.4);
+    }
+
+    .add-review-btn i {
+      font-size: 1.3rem;
+      transition: transform 0.3s ease;
+    }
+
+    .add-review-btn:hover i {
+      transform: rotate(90deg) scale(1.1);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      .testimonials-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+      
+      .testimonials-section .section-title {
+        font-size: 3rem;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .testimonials-section {
+        padding: 6rem 0;
+      }
+      
+      .testimonials-container {
+        padding: 0 1.5rem;
+      }
+      
+      .testimonial-card {
+        flex: 0 0 calc(50% - 1rem); /* 2 cards per view on tablet */
+        min-width: calc(50% - 1rem);
+        max-width: calc(50% - 1rem);
+        padding: 2.5rem 2rem;
+        min-height: 350px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .testimonials-section {
+        padding: 4rem 0;
+      }
+      
+      .testimonials-section .section-title {
+        font-size: 2.5rem;
+      }
+      
+      .testimonials-section .section-subtitle {
+        font-size: 1.2rem;
+      }
+      
+      .testimonials-grid {
+        gap: 1.5rem;
+      }
+      
+      .testimonial-card {
+        flex: 0 0 calc(100% - 2rem); /* 1 card per view on mobile */
+        min-width: calc(100% - 2rem);
+        max-width: calc(100% - 2rem);
+        padding: 2rem 1.5rem;
+        min-height: 320px;
+      }
+      
+      .testimonials-navigation {
+        gap: 1rem;
+        margin: 2rem 0 1rem 0;
+      }
+      
+      .nav-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+      }
+    }
+      
+      .nav-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+      }
+
+    @media (max-width: 576px) {
+      .testimonials-section {
+        padding: 4rem 0;
+      }
+      
+      .testimonials-section .section-title {
+        font-size: 2.2rem;
+      }
+      
+      .testimonials-section .section-subtitle {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+      }
+      
+      .testimonials-container {
+        padding: 0 1rem;
+      }
+      
+      .testimonial-card {
+        padding: 1.5rem 1rem;
+        border-radius: 15px;
+        min-height: 280px;
+      }
+      
+      .testimonial-quote {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .author-avatar {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .add-review-btn {
+        padding: 15px 30px;
+        font-size: 1rem;
+      }
+      
+      .author-info .position {
+        color: #b0b0b0;
+      }
+    }
+
+    /* Review Card Hover Effects */
     .review-card::before {
       content: '';
       position: absolute;
@@ -1015,55 +1547,113 @@
     </div>
   </section>
 
-  <!-- Partners section -->
-  <div class="partners-home container mt-5 mb-5">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-      <h3 class="mb-0 partners-title">Trusted by</h3>
-      <small>Selected partners & clients</small>
-    </div>
-    <div class="partner-logos">
-      <img src="company1.jpeg" alt="Partner 1">
-      <img src="company2.jpeg" alt="Partner 2">
-      <img src="company3.jpeg" alt="Partner 3">
-      <img src="company4.jpeg" alt="Partner 4">
-      <img src="company5.jpeg" alt="Partner 5">
-      <img src="company6.jpeg" alt="Partner 6">
-    </div>
-  </div>
-
-  <!-- Testimonials -->
-  <section class="testimonials container mt-5 mb-5">
-    <div class="text-center mb-5">
-      <h2 class="testimonials-title mb-3">What Our Clients Say</h2>
-      <p class="testimonials-subtitle">Discover why businesses trust Polyflex for their packaging solutions</p>
-      <div class="testimonials-divider"></div>
-    </div>
-    <div class="reviews-viewport">
-      <div class="reviews-track" id="reviewsTrack">
-        
-        <!-- 15 reviews duplicated for seamless loop (30 cards total) -->
-        <template id="reviewTemplate">
-          <div class="review-card">
-            <div class="review-header">
-              <div class="avatar"><img src="" alt=""></div>
-              <div>
-                <strong class="name">John Doe</strong>
-                <div class="stars"></div>
-              </div>
+  <!-- Partners section - Redesigned with Synchronized Sliders -->
+  <section class="partners-section py-5" style="background: linear-gradient(135deg, var(--cream) 0%, #FFF8ED 50%, var(--cream) 100%); position: relative; overflow: hidden;">
+    <!-- Decorative Background Elements -->
+    <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(250, 177, 47, 0.08) 0%, transparent 70%); border-radius: 50%;"></div>
+    <div style="position: absolute; bottom: -30px; left: -30px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(250, 129, 47, 0.06) 0%, transparent 70%); border-radius: 50%;"></div>
+    
+    <div class="container">
+      <!-- Section Header -->
+      <div class="text-center mb-5">
+        <h2 class="partners-title mb-2">Trusted by Industry Leaders</h2>
+        <p class="text-muted mb-0">Selected partners & clients who trust our packaging solutions</p>
+        <div class="title-divider mx-auto mt-3" style="width: 80px; height: 4px; background: linear-gradient(90deg, var(--orange), var(--yellow)); border-radius: 2px;"></div>
+      </div>
+      
+      <!-- Top Slider - Right to Left -->
+      <div class="partner-slider-container mb-4" id="topSliderContainer">
+        <div class="partner-slider" id="topSlider" aria-label="Partner logos slider - right to left">
+          <div class="partner-track" id="topTrack">
+            <div class="partner-slide">
+              <img src="company1.jpeg" alt="Partner 1" loading="lazy">
+              <img src="company2.jpeg" alt="Partner 2" loading="lazy">
+              <img src="company3.jpeg" alt="Partner 3" loading="lazy">
+              <img src="company4.jpeg" alt="Partner 4" loading="lazy">
+              <img src="company5.jpeg" alt="Partner 5" loading="lazy">
+              <img src="company6.jpeg" alt="Partner 6" loading="lazy">
+              <img src="company7.jpeg" alt="Partner 7" loading="lazy">
             </div>
-            <div class="review-text">Great quality and fast turnaround. Highly recommended!</div>
+            <!-- Duplicate for seamless loop -->
+            <div class="partner-slide">
+              <img src="company1.jpeg" alt="Partner 1" loading="lazy">
+              <img src="company2.jpeg" alt="Partner 2" loading="lazy">
+              <img src="company3.jpeg" alt="Partner 3" loading="lazy">
+              <img src="company4.jpeg" alt="Partner 4" loading="lazy">
+              <img src="company5.jpeg" alt="Partner 5" loading="lazy">
+              <img src="company6.jpeg" alt="Partner 6" loading="lazy">
+              <img src="company7.jpeg" alt="Partner 7" loading="lazy">
+            </div>
           </div>
-        </template>
-
+        </div>
+      </div>
+      
+      <!-- Bottom Slider - Left to Right -->
+      <div class="partner-slider-container" id="bottomSliderContainer">
+        <div class="partner-slider" id="bottomSlider" aria-label="Partner logos slider - left to right">
+          <div class="partner-track reverse" id="bottomTrack">
+            <div class="partner-slide">
+              <img src="company7.jpeg" alt="Partner 7" loading="lazy">
+              <img src="company6.jpeg" alt="Partner 6" loading="lazy">
+              <img src="company5.jpeg" alt="Partner 5" loading="lazy">
+              <img src="company4.jpeg" alt="Partner 4" loading="lazy">
+              <img src="company3.jpeg" alt="Partner 3" loading="lazy">
+              <img src="company2.jpeg" alt="Partner 2" loading="lazy">
+              <img src="company1.jpeg" alt="Partner 1" loading="lazy">
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="partner-slide">
+              <img src="company7.jpeg" alt="Partner 7" loading="lazy">
+              <img src="company6.jpeg" alt="Partner 6" loading="lazy">
+              <img src="company5.jpeg" alt="Partner 5" loading="lazy">
+              <img src="company4.jpeg" alt="Partner 4" loading="lazy">
+              <img src="company3.jpeg" alt="Partner 3" loading="lazy">
+              <img src="company2.jpeg" alt="Partner 2" loading="lazy">
+              <img src="company1.jpeg" alt="Partner 1" loading="lazy">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    
-    <!-- Add Your Review Button -->
-    <div class="text-center mt-4">
-      <button class="btn-add-review" onclick="openReviewModal()">
-        <i class="bi bi-plus-circle me-2"></i>
-        Add Your Review
-      </button>
+  </section>
+
+  <!-- Testimonials Section - Rebuilt -->
+  <section id="testimonials" class="testimonials-section">
+    <div class="container">
+      <div class="testimonials-header">
+        <h2 class="section-title">What Our Clients Say</h2>
+        <p class="section-subtitle">Discover why businesses trust us with their most important projects and how we've transformed their digital presence</p>
+        <div class="title-divider"></div>
+      </div>
+      
+      <div class="testimonials-container" id="testimonialsContainer">
+        <div class="testimonials-slider" id="testimonialsSlider">
+          <div class="testimonials-track" id="testimonialsTrack">
+            <div class="testimonials-grid" id="testimonialsGrid">
+              <!-- Testimonials will be dynamically loaded here -->
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonials-navigation" id="testimonialsNav">
+          <button class="nav-btn prev-btn" id="prevTestimonial" aria-label="Previous testimonials">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="testimonials-dots" id="testimonialsDots">
+            <!-- Pagination dots will be generated here -->
+          </div>
+          <button class="nav-btn next-btn" id="nextTestimonial" aria-label="Next testimonials">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+      
+      <div class="add-review-section">
+        <button class="add-review-btn" id="addReviewBtn" onclick="openReviewModal()" aria-label="Add your review">
+          <i class="fas fa-plus"></i>
+          <span>Add Your Review</span>
+        </button>
+      </div>
     </div>
   </section>
 
@@ -1402,98 +1992,860 @@ document.addEventListener('DOMContentLoaded', function(){
       }, 5000);
     });
   }
+}); // Close the original DOMContentLoaded function
 
-  // Testimonials data and render
-  const reviews = [
-    {name:'Ayesha K.', avatar:'https://i.pravatar.cc/60?img=1', rating:5, text:'Outstanding print quality and superb service.'},
-    {name:'Bilal S.', avatar:'https://i.pravatar.cc/60?img=2', rating:4, text:'Reliable partner for our label needs.'},
-    {name:'Hina R.', avatar:'https://i.pravatar.cc/60?img=3', rating:5, text:'Fast turnaround and attention to detail!'},
-    {name:'Omar T.', avatar:'https://i.pravatar.cc/60?img=4', rating:3, text:'Good experience overall; could improve packaging options.'},
-    {name:'Kiran M.', avatar:'https://i.pravatar.cc/60?img=5', rating:4, text:'Solid results and fair pricing.'},
-    {name:'Zeeshan A.', avatar:'https://i.pravatar.cc/60?img=6', rating:5, text:'They nailed our brand colors perfectly.'},
-    {name:'Sara J.', avatar:'https://i.pravatar.cc/60?img=7', rating:4, text:'Responsive team and quality output.'},
-    {name:'Danish Q.', avatar:'https://i.pravatar.cc/60?img=8', rating:2, text:'Decent but shipping took longer than expected.'},
-    {name:'Mehwish L.', avatar:'https://i.pravatar.cc/60?img=9', rating:5, text:'Exceptional flexo printing—crisp and consistent.'},
-    {name:'Rehan U.', avatar:'https://i.pravatar.cc/60?img=10', rating:4, text:'Our go-to for shrink labels.'},
-    {name:'Anum Z.', avatar:'https://i.pravatar.cc/60?img=11', rating:5, text:'Professional and courteous service.'},
-    {name:'Fahad P.', avatar:'https://i.pravatar.cc/60?img=12', rating:3, text:'Print quality is good; timelines vary sometimes.'},
-    {name:'Nida S.', avatar:'https://i.pravatar.cc/60?img=13', rating:4, text:'Great value for money.'},
-    {name:'Usman B.', avatar:'https://i.pravatar.cc/60?img=14', rating:5, text:'Top-notch QC and finishing.'},
-    {name:'Hassan R.', avatar:'https://i.pravatar.cc/60?img=15', rating:4, text:'Delivered on a tight deadline—impressive!'}
-  ];
-
-  const reviewsTrack = document.getElementById('reviewsTrack');
-  const tpl = document.getElementById('reviewTemplate');
-  if(reviewsTrack && tpl){
-    function starsHTML(n){
-      let s='';
-      for(let i=1;i<=5;i++) s += `<i class="bi ${i<=n?'bi-star-fill':'bi-star'}"></i>`;
-      return s;
+  // Modern Testimonials System with Error Handling
+  class TestimonialsManager {
+    constructor() {
+      this.testimonials = [
+        {
+          id: 1,
+          name: 'Dr. Sarah Khan',
+          position: 'Quality Assurance Director, Ray Pharma',
+          avatar: 'https://i.pravatar.cc/80?img=1',
+          rating: 5,
+          text: 'We\'ve been using Polyflex\'s packaging solutions for over 3 years for our pharmaceutical products. Their precision printing and quality materials ensure perfect compliance with regulatory standards.'
+        },
+        {
+          id: 2,
+          name: 'Ahmed Hassan',
+          position: 'Operations Manager, FreshMart Foods',
+          avatar: 'https://i.pravatar.cc/80?img=2',
+          rating: 5,
+          text: 'Outstanding service and innovative packaging solutions! Polyflex transformed our product presentation with their premium flexographic printing. Our sales increased by 40% after the packaging redesign.'
+        },
+        {
+          id: 3,
+          name: 'Maria Rodriguez',
+          position: 'Brand Manager, Luxe Cosmetics',
+          avatar: 'https://i.pravatar.cc/80?img=3',
+          rating: 5,
+          text: 'The attention to detail in their shrink sleeve labels is exceptional. Colors are vibrant, application is flawless, and the durability exceeds our expectations.'
+        },
+        {
+          id: 4,
+          name: 'James Mitchell',
+          position: 'CEO, EcoTech Solutions',
+          avatar: 'https://i.pravatar.cc/80?img=4',
+          rating: 4,
+          text: 'Polyflex delivered sustainable packaging solutions that align with our environmental values. Their eco-friendly materials and processes helped us achieve our sustainability goals.'
+        },
+        {
+          id: 5,
+          name: 'Fatima Al-Zahra',
+          position: 'Marketing Director, Gourmet Delights',
+          avatar: 'https://i.pravatar.cc/80?img=5',
+          rating: 5,
+          text: 'From concept to delivery, the entire process was seamless. Their design team understood our vision perfectly and created packaging that truly represents our brand.'
+        },
+        {
+          id: 6,
+          name: 'Robert Chen',
+          position: 'Supply Chain Manager, TechFlow Industries',
+          avatar: 'https://i.pravatar.cc/80?img=6',
+          rating: 5,
+          text: 'Reliability and consistency are what set Polyflex apart. Every order meets our exact specifications, delivery is always on time, and their customer service is exceptional.'
+        },
+        {
+          id: 7,
+          name: 'Lisa Thompson',
+          position: 'Procurement Manager, Global Retail Corp',
+          avatar: 'https://i.pravatar.cc/80?img=7',
+          rating: 5,
+          text: 'Polyflex has been our trusted partner for flexible packaging solutions. Their innovative approach to sustainable materials and cost-effective production has significantly improved our bottom line.'
+        },
+        {
+          id: 8,
+          name: 'Omar Al-Rashid',
+          position: 'Production Director, Desert Foods LLC',
+          avatar: 'https://i.pravatar.cc/80?img=8',
+          rating: 5,
+          text: 'The quality of their food-grade packaging is unmatched. We\'ve seen a 25% reduction in product spoilage since switching to Polyflex\'s barrier films and pouches.'
+        },
+        {
+          id: 9,
+          name: 'Jennifer Park',
+          position: 'Brand Development Lead, Urban Beverages',
+          avatar: 'https://i.pravatar.cc/80?img=9',
+          rating: 4,
+          text: 'Their shrink sleeve technology gave our beverage bottles a premium look that stands out on shelves. The 360-degree branding capability has boosted our market presence significantly.'
+        },
+        {
+          id: 10,
+          name: 'Michael O\'Connor',
+          position: 'Operations VP, MedSupply International',
+          avatar: 'https://i.pravatar.cc/80?img=10',
+          rating: 5,
+          text: 'For medical device packaging, precision is everything. Polyflex consistently delivers sterile barrier solutions that meet the strictest FDA requirements while maintaining cost efficiency.'
+        },
+        {
+          id: 11,
+          name: 'Priya Sharma',
+          position: 'Quality Control Manager, Spice World Exports',
+          avatar: 'https://i.pravatar.cc/80?img=11',
+          rating: 5,
+          text: 'Their multilayer films preserve the aroma and freshness of our spices perfectly. The moisture barrier properties have extended our product shelf life by 6 months.'
+        },
+        {
+          id: 12,
+          name: 'David Williams',
+          position: 'Sustainability Officer, Green Earth Products',
+          avatar: 'https://i.pravatar.cc/80?img=12',
+          rating: 5,
+          text: 'Polyflex\'s commitment to eco-friendly packaging aligns perfectly with our sustainability goals. Their biodegradable options have helped us reduce our environmental footprint by 60%.'
+        }
+      ];
+      
+      this.currentSlide = 0;
+      this.isAutoPlaying = true;
+      this.autoPlayInterval = null;
+      this.slidesPerView = this.calculateSlidesPerView();
+      this.totalSlides = Math.ceil(this.testimonials.length / this.slidesPerView);
+      this.isInitialized = false;
+      
+      // Bind methods to preserve context
+      this.nextSlide = this.nextSlide.bind(this);
+      this.previousSlide = this.previousSlide.bind(this);
+      this.goToSlide = this.goToSlide.bind(this);
+      this.handleResize = this.handleResize.bind(this);
     }
-    // build two copies for seamless loop
-    const all = [...reviews, ...reviews];
-    all.forEach((r)=>{
-      const node = tpl.content.cloneNode(true);
-      node.querySelector('.name').textContent = r.name;
-      node.querySelector('.avatar img').src = r.avatar;
-      node.querySelector('.avatar img').alt = r.name;
-      node.querySelector('.stars').innerHTML = starsHTML(r.rating);
-      node.querySelector('.review-text').textContent = r.text;
-      reviewsTrack.appendChild(node);
-    });
+
+    calculateSlidesPerView() {
+      if (window.innerWidth < 768) return 1;
+      if (window.innerWidth < 992) return 2;
+      return 3;
+    }
+
+    init() {
+      try {
+        const container = document.getElementById('testimonialsContainer');
+        const slider = document.getElementById('testimonialsSlider');
+        const track = document.getElementById('testimonialsTrack');
+        const grid = document.getElementById('testimonialsGrid');
+        const prevBtn = document.getElementById('prevTestimonial');
+        const nextBtn = document.getElementById('nextTestimonial');
+        const dotsContainer = document.getElementById('testimonialsDots');
+
+        if (!container || !slider || !track || !grid) {
+          console.warn('Testimonials elements not found');
+          return false;
+        }
+
+        this.container = container;
+        this.slider = slider;
+        this.track = track;
+        this.grid = grid;
+        this.prevBtn = prevBtn;
+        this.nextBtn = nextBtn;
+        this.dotsContainer = dotsContainer;
+
+        this.render();
+        this.setupEventListeners();
+        this.setupHoverControls();
+        this.setupIntersectionObserver();
+        this.startAutoPlay();
+        this.isInitialized = true;
+
+        console.log('Testimonials slider initialized successfully');
+        return true;
+      } catch (error) {
+        console.error('Failed to initialize testimonials slider:', error);
+        return false;
+      }
+    }
+
+    render() {
+      try {
+        if (!this.grid) return;
+
+        this.grid.innerHTML = '';
+        
+        this.testimonials.forEach((testimonial, index) => {
+          const card = this.createTestimonialCard(testimonial, index);
+          this.grid.appendChild(card);
+        });
+
+        this.renderPagination();
+        this.updateSliderPosition();
+      } catch (error) {
+        console.error('Error rendering testimonials:', error);
+        this.showErrorMessage();
+      }
+    }
+
+    createTestimonialCard(testimonial, index) {
+      const card = document.createElement('div');
+      card.className = 'testimonial-card';
+      card.setAttribute('data-testimonial-id', testimonial.id);
+      card.style.animationDelay = `${index * 0.1}s`;
+
+      const stars = this.generateStars(testimonial.rating);
+      
+      card.innerHTML = `
+        <div class="testimonial-content">
+          <div class="testimonial-quote">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p>${this.escapeHtml(testimonial.text)}</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <img src="${testimonial.avatar}" 
+                   alt="${this.escapeHtml(testimonial.name)}" 
+                   loading="lazy"
+                   onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iNDAiIGZpbGw9IiNmMGYwZjAiLz4KPHN2ZyB4PSIyMCIgeT0iMjAiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjOTk5Ij4KPHA+VXNlcjwvcD4KPC9zdmc+Cjwvc3ZnPg=='">
+            </div>
+            <div class="author-info">
+              <h4>${this.escapeHtml(testimonial.name)}</h4>
+              <div class="position">${this.escapeHtml(testimonial.position)}</div>
+              <div class="testimonial-rating" aria-label="Rating: ${testimonial.rating} out of 5 stars">
+                ${stars}
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      return card;
+    }
+
+    generateStars(rating) {
+      let stars = '';
+      for (let i = 1; i <= 5; i++) {
+        const filled = i <= rating;
+        stars += `<i class="fas ${filled ? 'fa-star' : 'fa-star-o'}" aria-hidden="true"></i>`;
+      }
+      return stars;
+    }
+
+    renderPagination() {
+      if (!this.dotsContainer) return;
+
+      this.dotsContainer.innerHTML = '';
+      
+      for (let i = 0; i < this.totalSlides; i++) {
+        const dot = document.createElement('button');
+        dot.className = `dot ${i === this.currentSlide ? 'active' : ''}`;
+        dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+        dot.addEventListener('click', () => this.goToSlide(i));
+        this.dotsContainer.appendChild(dot);
+      }
+    }
+
+    setupEventListeners() {
+      try {
+        // Navigation buttons
+        if (this.prevBtn) {
+          this.prevBtn.addEventListener('click', this.previousSlide);
+        }
+        if (this.nextBtn) {
+          this.nextBtn.addEventListener('click', this.nextSlide);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+          if (!this.isInitialized) return;
+          
+          if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            this.previousSlide();
+          } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            this.nextSlide();
+          }
+        });
+
+        // Touch/swipe support
+        this.setupTouchControls();
+
+        // Hover controls
+        this.setupHoverControls();
+
+        // Resize handling
+        window.addEventListener('resize', this.debounce(this.handleResize, 250));
+
+        // Intersection Observer for performance
+        this.setupIntersectionObserver();
+      } catch (error) {
+        console.error('Error setting up event listeners:', error);
+      }
+    }
+
+    setupTouchControls() {
+      if (!this.container) return;
+
+      let startX = 0;
+      let endX = 0;
+      let startTime = 0;
+
+      this.container.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        startTime = Date.now();
+      }, { passive: true });
+
+      this.container.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        const endTime = Date.now();
+        const timeDiff = endTime - startTime;
+        
+        // Only handle quick swipes (less than 300ms)
+        if (timeDiff < 300) {
+          this.handleSwipe(startX, endX);
+        }
+      }, { passive: true });
+    }
+
+    handleSwipe(startX, endX) {
+      const swipeThreshold = 50;
+      const diff = startX - endX;
+
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          this.nextSlide();
+        } else {
+          this.previousSlide();
+        }
+      }
+    }
+
+    setupHoverControls() {
+      if (!this.container) return;
+
+      // Pause autoplay on hover with smooth transition
+      this.container.addEventListener('mouseenter', () => {
+        this.stopAutoPlay();
+        // Add visual feedback for paused state
+        this.container.style.animationPlayState = 'paused';
+      });
+
+      // Resume autoplay when mouse leaves with delay
+      this.container.addEventListener('mouseleave', () => {
+        // Small delay before resuming to prevent flickering
+        setTimeout(() => {
+          this.startAutoPlay();
+          this.container.style.animationPlayState = 'running';
+        }, 300);
+      });
+
+      // Pause on focus for accessibility
+      this.container.addEventListener('focusin', () => {
+        this.stopAutoPlay();
+      });
+
+      // Resume on focus out
+      this.container.addEventListener('focusout', () => {
+        setTimeout(() => {
+          this.startAutoPlay();
+        }, 300);
+      });
+    }
+
+    setupIntersectionObserver() {
+      if (!('IntersectionObserver' in window) || !this.container) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.startAutoPlay();
+          } else {
+            this.stopAutoPlay();
+          }
+        });
+      }, { threshold: 0.5 });
+
+      observer.observe(this.container);
+    }
+
+    updateSliderPosition() {
+      try {
+        if (!this.track) return;
+
+        const slideWidth = 100 / this.slidesPerView;
+        const translateX = -(this.currentSlide * slideWidth);
+        
+        this.track.style.transform = `translateX(${translateX}%)`;
+        this.track.style.transition = 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+
+        // Update pagination dots
+        const dots = this.dotsContainer?.querySelectorAll('.dot');
+        if (dots) {
+          dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === this.currentSlide);
+          });
+        }
+
+        // Remove navigation button restrictions for continuous sliding
+        if (this.prevBtn) {
+          this.prevBtn.disabled = false;
+          this.prevBtn.setAttribute('aria-disabled', 'false');
+        }
+        if (this.nextBtn) {
+          this.nextBtn.disabled = false;
+          this.nextBtn.setAttribute('aria-disabled', 'false');
+        }
+      } catch (error) {
+        console.error('Error updating slider position:', error);
+      }
+    }
+
+    nextSlide() {
+      if (this.currentSlide < this.totalSlides - 1) {
+        this.currentSlide++;
+      } else {
+        // Loop back to the beginning for continuous sliding
+        this.currentSlide = 0;
+      }
+      this.updateSliderPosition();
+      this.resetAutoPlay();
+    }
+
+    previousSlide() {
+      if (this.currentSlide > 0) {
+        this.currentSlide--;
+      } else {
+        // Loop to the end for continuous sliding
+        this.currentSlide = this.totalSlides - 1;
+      }
+      this.updateSliderPosition();
+      this.resetAutoPlay();
+    }
+
+    goToSlide(slideIndex) {
+      if (slideIndex >= 0 && slideIndex < this.totalSlides) {
+        this.currentSlide = slideIndex;
+        this.updateSliderPosition();
+        this.resetAutoPlay();
+      }
+    }
+
+    startAutoPlay() {
+      if (!this.isAutoPlaying) return;
+
+      this.stopAutoPlay();
+      this.autoPlayInterval = setInterval(() => {
+        // Move to next slide (right-to-left animation)
+        this.nextSlide();
+      }, 4000); // Reduced timing for better user experience
+    }
+
+    stopAutoPlay() {
+      if (this.autoPlayInterval) {
+        clearInterval(this.autoPlayInterval);
+        this.autoPlayInterval = null;
+      }
+    }
+
+    resetAutoPlay() {
+      this.stopAutoPlay();
+      this.startAutoPlay();
+    }
+
+    handleResize() {
+      try {
+        const newSlidesPerView = this.calculateSlidesPerView();
+        
+        if (newSlidesPerView !== this.slidesPerView) {
+          this.slidesPerView = newSlidesPerView;
+          this.totalSlides = Math.ceil(this.testimonials.length / this.slidesPerView);
+          this.currentSlide = Math.min(this.currentSlide, this.totalSlides - 1);
+          
+          this.renderPagination();
+          this.updateSliderPosition();
+        }
+      } catch (error) {
+        console.error('Error handling resize:', error);
+      }
+    }
+
+    showErrorMessage() {
+      if (!this.container) return;
+      
+      this.container.innerHTML = `
+        <div class="testimonials-error">
+          <i class="fas fa-exclamation-triangle"></i>
+          <p>Unable to load testimonials at this time. Please try refreshing the page.</p>
+        </div>
+      `;
+    }
+
+    escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+
+    destroy() {
+      this.stopAutoPlay();
+      window.removeEventListener('resize', this.handleResize);
+      this.isInitialized = false;
+    }
   }
+
+  // Initialize testimonials system
+  let testimonialsManager;
 
   // Add Your Review Modal Function
   function openReviewModal() {
-    alert('Thank you for your interest in leaving a review! This feature will redirect you to our review platform or contact form where you can share your experience with Polyflex.');
-    // In a real implementation, this would open a modal or redirect to a review form
-    // For now, we'll show a simple alert
-  }
+    try {
+      // Create modal overlay
+      const modalOverlay = document.createElement('div');
+      modalOverlay.className = 'review-modal-overlay';
+      modalOverlay.innerHTML = `
+        <div class="review-modal">
+          <div class="review-modal-header">
+            <h3>Share Your Experience</h3>
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+          </div>
+          <div class="review-modal-body">
+            <p>Thank you for your interest in sharing your experience with Polyflex!</p>
+            <p>We value your feedback and would love to hear about your experience with our packaging solutions.</p>
+            <div class="modal-actions">
+              <button class="btn btn-primary" onclick="window.open('mailto:reviews@polyflex.com?subject=Customer Review', '_blank')">
+                <i class="fas fa-envelope"></i> Email Us
+              </button>
+              <button class="btn btn-secondary" onclick="this.closest('.review-modal-overlay').remove()">
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
 
-  // Contact form - frontend simulation with basic validation
-  const contactForm = document.getElementById('contactForm');
-  if(contactForm){
-    function isValidEmail(s){
-      if(!s) return false;
-      const parts = s.split('@');
-      if(parts.length !== 2) return false;
-      if(parts[0].trim() === '' || parts[1].trim() === '') return false;
-      if(parts[1].indexOf('.') === -1) return false;
-      return true;
+      // Add modal styles
+      const modalStyles = `
+        <style>
+          .review-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            animation: fadeIn 0.3s ease;
+          }
+          .review-modal {
+            background: white;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideIn 0.3s ease;
+          }
+          .review-modal-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+          .review-modal-body {
+            padding: 20px;
+          }
+          .modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+          }
+          .modal-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+          }
+          @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+          @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+          }
+        </style>
+      `;
+
+      document.head.insertAdjacentHTML('beforeend', modalStyles);
+      document.body.appendChild(modalOverlay);
+
+      // Close modal on overlay click
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+          modalOverlay.remove();
+        }
+      });
+
+      // Close modal on close button click
+      modalOverlay.querySelector('.modal-close').addEventListener('click', () => {
+        modalOverlay.remove();
+      });
+
+      // Close modal on escape key
+      const handleEscape = (e) => {
+        if (e.key === 'Escape') {
+          modalOverlay.remove();
+          document.removeEventListener('keydown', handleEscape);
+        }
+      };
+      document.addEventListener('keydown', handleEscape);
+
+    } catch (error) {
+      console.error('Error opening review modal:', error);
+      alert('Thank you for your interest in leaving a review! Please contact us at reviews@polyflex.com to share your experience.');
     }
-    contactForm.addEventListener('submit', function(e){
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-      const alertBox = document.getElementById('formAlert');
-      if(!name || !email || !message){
-        alertBox.style.display='block'; alertBox.className='alert alert-danger mt-3'; alertBox.textContent='Please fill out all fields.'; return;
-      }
-      if(!isValidEmail(email)){
-        alertBox.style.display='block'; alertBox.className='alert alert-danger mt-3'; alertBox.textContent='Please enter a valid email address.'; return;
-      }
-      alertBox.style.display='block'; alertBox.className='alert alert-success mt-3'; alertBox.textContent="Thanks, your message has been received (demo). We'll contact you at " + email + '.';
-      contactForm.reset();
-    });
   }
 
-  // Helper: set active nav link on scroll
-  const sections = document.querySelectorAll('section, header');
-  function updateActiveNav(){
-    const pos = window.scrollY + 90;
-    sections.forEach(s=>{
-      if(s.offsetTop <= pos && (s.offsetTop + s.offsetHeight) > pos){
-        document.querySelectorAll('.nav-link').forEach(n=>n.classList.remove('active'));
-        const link = document.querySelector('.nav-link[href="#'+s.id+'"]');
-        if(link) link.classList.add('active');
-      }
-    });
-  }
-  updateActiveNav();
-  window.addEventListener('scroll', updateActiveNav);
+  // Initialize everything when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    // Initialize testimonials system
+    testimonialsManager = new TestimonialsManager();
+    testimonialsManager.init();
 
-});
+    // Contact form - frontend simulation with basic validation
+    const contactForm = document.getElementById('contactForm');
+    if(contactForm){
+      function isValidEmail(s){
+        if(!s) return false;
+        const parts = s.split('@');
+        if(parts.length !== 2) return false;
+        if(parts[0].trim() === '' || parts[1].trim() === '') return false;
+        if(parts[1].indexOf('.') === -1) return false;
+        return true;
+      }
+      contactForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        const alertBox = document.getElementById('formAlert');
+        if(!name || !email || !message){
+          alertBox.style.display='block'; alertBox.className='alert alert-danger mt-3'; alertBox.textContent='Please fill out all fields.'; return;
+        }
+        if(!isValidEmail(email)){
+          alertBox.style.display='block'; alertBox.className='alert alert-danger mt-3'; alertBox.textContent='Please enter a valid email address.'; return;
+        }
+        alertBox.style.display='block'; alertBox.className='alert alert-success mt-3'; alertBox.textContent="Thanks, your message has been received (demo). We'll contact you at " + email + '.';
+        contactForm.reset();
+      });
+    }
+
+    // Helper: set active nav link on scroll
+    const sections = document.querySelectorAll('section, header');
+    function updateActiveNav(){
+      const pos = window.scrollY + 90;
+      sections.forEach(s=>{
+        if(s.offsetTop <= pos && (s.offsetTop + s.offsetHeight) > pos){
+          document.querySelectorAll('.nav-link').forEach(n=>n.classList.remove('active'));
+          const link = document.querySelector('.nav-link[href="#'+s.id+'"]');
+          if(link) link.classList.add('active');
+        }
+      });
+    }
+    updateActiveNav();
+    window.addEventListener('scroll', updateActiveNav);
+  });
+
+  // Partner Sliders Manager
+  class PartnerSlidersManager {
+    constructor() {
+      this.topSlider = null;
+      this.bottomSlider = null;
+      this.isInitialized = false;
+      this.animationSpeed = 20; // seconds for full cycle
+      this.isVisible = false;
+      
+      this.init = this.init.bind(this);
+      this.handleVisibilityChange = this.handleVisibilityChange.bind(this);
+      this.handleResize = this.handleResize.bind(this);
+    }
+
+    init() {
+      try {
+        this.topSlider = document.getElementById('topTrack');
+        this.bottomSlider = document.getElementById('bottomTrack');
+        
+        if (!this.topSlider || !this.bottomSlider) {
+          console.warn('Partner sliders not found');
+          return;
+        }
+
+        this.setupIntersectionObserver();
+        this.setupEventListeners();
+        this.adjustAnimationSpeed();
+        this.isInitialized = true;
+        
+        console.log('Partner sliders initialized successfully');
+      } catch (error) {
+        console.error('Error initializing partner sliders:', error);
+      }
+    }
+
+    setupIntersectionObserver() {
+      const options = {
+        root: null,
+        rootMargin: '50px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          this.isVisible = entry.isIntersecting;
+          this.handleVisibilityChange();
+        });
+      }, options);
+
+      const partnersSection = document.querySelector('.partners-section');
+      if (partnersSection) {
+        observer.observe(partnersSection);
+      }
+    }
+
+    handleVisibilityChange() {
+      if (!this.topSlider || !this.bottomSlider) return;
+
+      if (this.isVisible) {
+        // Resume animations when visible
+        this.topSlider.style.animationPlayState = 'running';
+        this.bottomSlider.style.animationPlayState = 'running';
+      } else {
+        // Pause animations when not visible for performance
+        this.topSlider.style.animationPlayState = 'paused';
+        this.bottomSlider.style.animationPlayState = 'paused';
+      }
+    }
+
+    setupEventListeners() {
+      // Pause on hover for better UX
+      const containers = document.querySelectorAll('.partner-slider-container');
+      
+      containers.forEach(container => {
+        container.addEventListener('mouseenter', () => {
+          if (this.topSlider && this.bottomSlider) {
+            this.topSlider.style.animationPlayState = 'paused';
+            this.bottomSlider.style.animationPlayState = 'paused';
+          }
+        });
+
+        container.addEventListener('mouseleave', () => {
+          if (this.topSlider && this.bottomSlider && this.isVisible) {
+            this.topSlider.style.animationPlayState = 'running';
+            this.bottomSlider.style.animationPlayState = 'running';
+          }
+        });
+
+        // Accessibility: pause on focus
+        container.addEventListener('focusin', () => {
+          if (this.topSlider && this.bottomSlider) {
+            this.topSlider.style.animationPlayState = 'paused';
+            this.bottomSlider.style.animationPlayState = 'paused';
+          }
+        });
+
+        container.addEventListener('focusout', () => {
+          if (this.topSlider && this.bottomSlider && this.isVisible) {
+            setTimeout(() => {
+              this.topSlider.style.animationPlayState = 'running';
+              this.bottomSlider.style.animationPlayState = 'running';
+            }, 300);
+          }
+        });
+      });
+
+      // Handle window resize
+      window.addEventListener('resize', this.handleResize);
+    }
+
+    adjustAnimationSpeed() {
+      if (!this.topSlider || !this.bottomSlider) return;
+
+      const screenWidth = window.innerWidth;
+      let speed = this.animationSpeed;
+
+      // Adjust speed based on screen size for better mobile experience
+      if (screenWidth <= 575) {
+        speed = this.animationSpeed * 0.8; // Slower on mobile
+      } else if (screenWidth <= 768) {
+        speed = this.animationSpeed * 0.9; // Slightly slower on tablet
+      }
+
+      this.topSlider.style.animationDuration = `${speed}s`;
+      this.bottomSlider.style.animationDuration = `${speed}s`;
+    }
+
+    handleResize() {
+      // Debounce resize handling
+      clearTimeout(this.resizeTimeout);
+      this.resizeTimeout = setTimeout(() => {
+        this.adjustAnimationSpeed();
+      }, 250);
+    }
+
+    // Method to restart animations (useful for dynamic content updates)
+    restartAnimations() {
+      if (!this.topSlider || !this.bottomSlider) return;
+
+      // Temporarily remove animation
+      this.topSlider.style.animation = 'none';
+      this.bottomSlider.style.animation = 'none';
+
+      // Force reflow
+      this.topSlider.offsetHeight;
+      this.bottomSlider.offsetHeight;
+
+      // Restore animation
+      this.topSlider.style.animation = '';
+      this.bottomSlider.style.animation = '';
+      
+      this.adjustAnimationSpeed();
+    }
+
+    // Performance optimization: reduce motion for users who prefer it
+    respectReducedMotion() {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      
+      if (prefersReducedMotion && this.topSlider && this.bottomSlider) {
+        this.topSlider.style.animationDuration = '60s'; // Much slower
+        this.bottomSlider.style.animationDuration = '60s';
+      }
+    }
+
+    destroy() {
+      window.removeEventListener('resize', this.handleResize);
+      clearTimeout(this.resizeTimeout);
+      this.isInitialized = false;
+    }
+  }
+
+  // Initialize Partner Sliders
+  let partnerSlidersManager;
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      partnerSlidersManager = new PartnerSlidersManager();
+      partnerSlidersManager.init();
+      partnerSlidersManager.respectReducedMotion();
+    });
+  } else {
+    partnerSlidersManager = new PartnerSlidersManager();
+    partnerSlidersManager.init();
+    partnerSlidersManager.respectReducedMotion();
+  }
 </script>
 
 <!-- Social Media Icons - Fixed Position -->
