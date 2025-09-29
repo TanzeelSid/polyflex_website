@@ -78,12 +78,191 @@
     @media (max-width:575px){.partner-logos{grid-template-columns:repeat(2,1fr)} .partner-logos img{width:110px;height:110px} .partners-title{font-size:1.35rem}}
 
     /* Testimonials */
-    .testimonials{padding:3rem 0;border-top:1px solid rgba(0,0,0,0.06)}
-    .reviews-viewport{overflow:hidden}
-    .reviews-track{display:flex;gap:1rem;align-items:stretch;animation:reviewsScroll 40s linear infinite}
+    .testimonials{
+      padding:5rem 15px;
+      background: linear-gradient(135deg, rgba(255,193,7,0.06) 0%, rgba(255,87,34,0.09) 50%, rgba(63,81,181,0.06) 100%);
+      border-top:2px solid rgba(255,193,7,0.25);
+      border-bottom:2px solid rgba(255,193,7,0.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .testimonials-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #2c3e50;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 1rem;
+    }
+    .testimonials-subtitle {
+      font-size: 1.2rem;
+      color: #6c757d;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .testimonials-divider {
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #ffc107, #ff5722);
+      margin: 0 auto 3rem;
+      border-radius: 2px;
+    }
+    
+    /* Add Your Review Button */
+    .btn-add-review {
+      background: linear-gradient(135deg, #ffc107, #ff5722);
+      border: none;
+      color: white;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .btn-add-review:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 193, 7, 0.4);
+      background: linear-gradient(135deg, #ffcd38, #ff6b47);
+    }
+    .btn-add-review:active {
+      transform: translateY(0);
+    }
+    .testimonials::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+      animation: shimmer 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes shimmer {
+      0%, 100% { transform: translateX(-100%); }
+      50% { transform: translateX(100%); }
+    }
+    .reviews-viewport{overflow:hidden;position:relative;padding:0 15px}
+    .reviews-track{
+      display:flex;
+      gap:30px;
+      align-items:stretch;
+      animation:reviewsScroll 60s linear infinite;
+      transition: transform 0.3s ease;
+    }
     .testimonials:hover .reviews-track{animation-play-state:paused}
-    .review-card{flex:0 0 20%;background:#ffffff;border:1px solid rgba(0,0,0,0.08);border-radius:14px;padding:1rem;box-shadow: 0 6px 20px rgba(0,0,0,0.03)}
-    .review-header{display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem}
+    .review-card{
+      flex:0 0 26%;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(15px);
+      border:2px solid rgba(255,193,7,0.25);
+      border-radius:24px;
+      padding:2.5rem;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.12), 0 0 0 1px rgba(255,255,255,0.3) inset;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      min-height: 280px;
+    }
+    .review-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,193,7,0.1), transparent);
+      transition: left 0.6s ease;
+    }
+    .review-card:hover::before {
+      left: 100%;
+    }
+    .review-card:hover {
+      transform: translateY(-2px) scale(1.005);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12), 0 0 0 2px rgba(255,193,7,0.4) inset;
+      border-color: rgba(255,193,7,0.6);
+    }
+    .review-header{
+      display:flex;
+      align-items:center;
+      gap:1.25rem;
+      margin-bottom:1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    .review-header .avatar {
+      position: relative;
+    }
+    .review-header .avatar img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 4px solid rgba(255,193,7,0.4);
+      transition: all 0.3s ease;
+    }
+    .review-card:hover .review-header .avatar img {
+      border-color: rgba(255,193,7,0.9);
+      transform: scale(1.1);
+    }
+    .review-header .name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 0.25rem;
+      text-transform: capitalize;
+    }
+    .review-header .position {
+      font-size: 0.95rem;
+      color: #7f8c8d;
+      font-weight: 500;
+      font-style: normal;
+    }
+    .review-text {
+      position: relative;
+      z-index: 2;
+      line-height: 1.7;
+      color: #34495e;
+      font-size: 1.1rem;
+      font-weight: 400;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+    .review-text::before {
+      content: '"';
+      font-size: 3rem;
+      color: rgba(255,193,7,0.3);
+      position: absolute;
+      top: -10px;
+      left: -15px;
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    .review-text::after {
+      content: '"';
+      font-size: 3rem;
+      color: rgba(255,193,7,0.3);
+      position: absolute;
+      bottom: -25px;
+      right: -10px;
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    .stars i {
+      color: #ffc107;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      margin-right: 2px;
+    }
+    .review-card:hover .stars i {
+      transform: scale(1.1);
+    }
     /* Portfolio slider */
     .portfolio-slider-container {
       position: relative;
@@ -192,25 +371,62 @@
     .stars i{color:var(--yellow)}
     .review-text{color:var(--text-body);font-size:.9rem}
     @keyframes reviewsScroll{from{transform:translateX(0)} to{transform:translateX(-50%)}}
-    @media (max-width:1199px){.review-card{flex-basis:25%}}
-
-    @media (max-width:991px){.review-card{flex-basis:33.333%}}
-    @media (max-width:575px){.review-card{flex-basis:100%}}
+    @media (max-width:1199px){.review-card{flex-basis:32%; flex: 0 0 32%} .testimonials{padding:4rem 0} .testimonials-title{font-size:2.2rem}}
+@media (max-width:991px){.review-card{flex-basis:45%; flex: 0 0 45%} .testimonials{padding:3.5rem 0} .review-card{padding:2rem} .reviews-track{gap:1.5rem} .testimonials-title{font-size:2rem} .testimonials-subtitle{font-size:1.1rem}}
+@media (max-width:575px){.review-card{flex-basis:85%; flex: 0 0 85%; min-height:250px} .testimonials{padding:3rem 0} .review-card{padding:2rem} .reviews-track{gap:1rem} .testimonials-title{font-size:1.8rem} .testimonials-subtitle{font-size:1rem} .review-text{font-size:1rem} .review-header .name{font-size:1.1rem}}
     .hero{
-      padding: 6rem 0 4rem;
-      background-image: radial-gradient(circle at 10% 10%, rgba(250,177,47,0.08), transparent 10%), 
-                        radial-gradient(circle at 90% 90%, rgba(250,129,47,0.08), transparent 12%);
-      background-color: var(--cream);
+      padding: 9rem 0 4rem; /* Increased top padding from 8rem to 9rem for better spacing */
+      background-image: url('banner.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      color: #ffffff;
+    }
+    
+    /* Responsive padding adjustments */
+    @media (max-width: 992px) {
+      .hero {
+        padding: 8rem 0 3rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero {
+        padding: 7rem 0 3rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hero {
+        padding: 6rem 0 2.5rem;
+      }
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1, .hero p, .hero .chip, .hero .small {
+      color: #ffffff;
     }
     .hero .chip{
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.2);
       padding: .35rem .6rem;
       border-radius: 999px;
       font-size: .85rem;
-      color: var(--text-dark);
       display:inline-flex;gap:.4rem;align-items:center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
     }
     .cta-btn{
       border-radius: 12px;
@@ -367,63 +583,11 @@
     @media (max-width:767px){
       .hero{padding:3.5rem 0}
     }
-    /* Full-width banner */
-    .full-width-banner {
-      width: 100%;
-      position: relative;
-      overflow: hidden;
-      margin-top: 76px; /* Account for fixed navbar height */
-    }
-    
-    .banner-container {
-      display: flex;
-      height: 400px;
-    }
-    
-    .banner-image {
-      flex: 1;
-      height: 100%;
-      object-fit: cover;
-    }
-    
-    .banner-center {
-      flex: 1;
-      background-color: var(--accent);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 2rem;
-    }
-    
-    .banner-center h2 {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      font-size: 2.5rem;
-    }
-    
-    .banner-center p {
-      max-width: 80%;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-    
-    @media (max-width: 992px) {
-      .banner-container {
-        flex-direction: column;
-        height: auto;
-      }
-      
-      .banner-image {
-        height: 200px;
-      }
-      
-      .banner-center {
-        padding: 3rem 1.5rem;
-      }
+    /* Services button hover effect */
+    .services-btn:hover {
+      background-color: #000000;
+      border-color: #000000;
+      color: #ffffff;
     }
   </style>
 </head>
@@ -452,20 +616,8 @@
     </div>
   </nav>
 
-  <!-- FULL-WIDTH BANNER -->
-  <section class="full-width-banner">
-    <div class="banner-container">
-      <img src="banner.jpeg" alt="Sustainable materials" class="banner-image">
-      <div class="banner-center">
-        <h2>POLYFLEX</h2>
-        <p>INNOVATIVE PRINTING & PACKAGING SOLUTIONS FOR BUSINESSES WORLDWIDE SINCE 1983.</p>
-      </div>
-      <img src="banner2.jpg" alt="Renewable solutions" class="banner-image">
-    </div>
-  </section>
-
   <!-- HERO / HOME -->
-  <header id="home" class="hero" style="padding-top:40px;">
+  <header id="home" class="hero" style="padding-top:140px;">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6">
@@ -473,7 +625,7 @@
           <h1 class="display-5 fw-bold" style="line-height:1.05">Polyflex Printing Services<br><span class="text-warning">Printing & Packaging Excellence Since 1983</span></h1>
           <p class="lead mt-3">Innovative, reliable, and sustainable packaging solutions — from custom reel printing to food-safe packaging and export-ready products.</p>
           <div class="d-flex gap-3 mt-4">
-            <a href="#services" class="btn btn-outline-secondary btn-lg">Our Services</a>
+            <a href="#services" class="btn btn-outline-light btn-lg services-btn">Our Services</a>
             <a href="#contact" class="btn btn-warning btn-lg cta-btn">Request a Quote</a>
           </div>
           <div class="mt-4 small">ISO 9001:2015 certified • BPA-free plastics • Eco-friendly inks</div>
@@ -483,19 +635,19 @@
             <div style="padding:1.25rem;">
               <div class="row g-2">
                 <div class="col-6">
-                  <div class="p-3 text-center" style="background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:12px;">
+                  <div class="p-3 text-center" style="background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius:12px;">
                     <h5 class="mb-1">Export Ready</h5>
                     <p class="small">International markets since 2023</p>
                   </div>
                 </div>
                 <div class="col-6">
-                  <div class="p-3 text-center" style="background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:12px;">
+                  <div class="p-3 text-center" style="background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius:12px;">
                     <h5 class="mb-1">Food-Safe</h5>
                     <p class="small">Food-grade materials & testing</p>
                   </div>
                 </div>
                 <div class="col-12 mt-2">
-                  <div class="p-3" style="border-radius:12px;">
+                  <div class="p-3" style="background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius:12px;">
                     <h6 class="mb-1">Capabilities</h6>
                     <p class="small">Flexographic, rotogravure, digital printing, die-cutting, lamination, pouch-making & in-house QC lab.</p>
                     <div class="d-flex gap-2 flex-wrap mt-2">
@@ -514,7 +666,7 @@
 
       <div class="row mt-5">
         <div class="col-md-6">
-          <div class="card p-3 contact-card">
+          <div class="card p-3 contact-card" style="background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.2);">
             <h5 class="mb-1">Why choose Polyflex?</h5>
             <ul class="mb-0 small">
               <li>40+ years of proven expertise</li>
@@ -525,7 +677,7 @@
           </div>
         </div>
         <div class="col-md-6">
-          <div class="card p-3 contact-card">
+          <div class="card p-3 contact-card" style="background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.2);">
             <h5 class="mb-1">Quick Contact</h5>
             <p class="small mb-1">Plot No. CA-329 Shah Baig Gabool Town, North Karachi Industrial Area Karachi</p>
             <p class="small mb-1">Phone: 0300-9200021</p>
@@ -591,6 +743,14 @@
         </div>
       </div>
     </div>
+    
+    <!-- Add Your Review Button -->
+    <!-- <div class="text-center mt-4">
+      <button class="btn-add-review" onclick="openReviewModal()">
+        <i class="bi bi-plus-circle me-2"></i>
+        Add Your Review
+      </button>
+    </div> -->
   </section>
 
 
@@ -789,9 +949,10 @@
 
   <!-- Testimonials -->
   <section class="testimonials container mt-5 mb-5">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-      <h3 class="mb-0">What our clients say</h3>
-      <small>Auto-scroll • hover to pause</small>
+    <div class="text-center mb-5">
+      <h2 class="testimonials-title mb-3">What Our Clients Say</h2>
+      <p class="testimonials-subtitle">Discover why businesses trust Polyflex for their packaging solutions</p>
+      <div class="testimonials-divider"></div>
     </div>
     <div class="reviews-viewport">
       <div class="reviews-track" id="reviewsTrack">
@@ -811,6 +972,14 @@
         </template>
 
       </div>
+    </div>
+    
+    <!-- Add Your Review Button -->
+    <div class="text-center mt-4">
+      <button class="btn-add-review" onclick="openReviewModal()">
+        <i class="bi bi-plus-circle me-2"></i>
+        Add Your Review
+      </button>
     </div>
   </section>
 
@@ -1188,6 +1357,13 @@ document.addEventListener('DOMContentLoaded', function(){
       node.querySelector('.review-text').textContent = r.text;
       reviewsTrack.appendChild(node);
     });
+  }
+
+  // Add Your Review Modal Function
+  function openReviewModal() {
+    alert('Thank you for your interest in leaving a review! This feature will redirect you to our review platform or contact form where you can share your experience with Polyflex.');
+    // In a real implementation, this would open a modal or redirect to a review form
+    // For now, we'll show a simple alert
   }
 
   // Contact form - frontend simulation with basic validation
