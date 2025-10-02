@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us | PolyFlex Solutions</title>
+  <link rel="icon" href="logo.png" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,6 +50,10 @@
       font-weight:700;
       letter-spacing:0.6px;
       color: var(--text-dark);
+    }
+    /* Navbar toggler icon color */
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
     }
     
     /* Banner Styles */
@@ -539,8 +544,8 @@
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom py-3 fixed-top">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
-        <div class="brand-logo">POLYFLEX</div>
-        <small class="text-muted" style="font-size:.65rem;">Printing & Packaging</small>
+        <img src="logo.png" alt="Polyflex Printing & Packaging" style="height: 55px; width: auto;">
+        <span class="brand-logo">POLYFLEX</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
@@ -940,7 +945,13 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-4 mb-4 mb-lg-0">
-          <div class="brand-logo mb-2">POLYFLEX</div>
+          <div class="d-flex align-items-center mb-3">
+            <img src="logo.png" alt="Polyflex Logo" style="height: 50px; width: auto; filter: drop-shadow(0 2px 4px rgba(255, 193, 7, 0.3)); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            <div class="ms-3">
+              <div class="brand-logo mb-1" style="font-size: 1.2rem;">POLYFLEX</div>
+              <small class="text-warning" style="font-size: 0.7rem;">Printing & Packaging</small>
+            </div>
+          </div>
           <p class="small text-muted">Innovative, reliable, and sustainable packaging solutions since 1983. ISO 9001:2015 certified with a focus on quality and customer satisfaction.</p>
           <div class="d-flex gap-3 mt-3">
             <a href="#" class="text-muted"><i class="bi bi-facebook"></i></a>
@@ -963,7 +974,7 @@
           <h6 class="mb-3">Contact</h6>
           <ul class="list-unstyled small text-muted">
             <li class="mb-2"><i class="bi bi-geo-alt me-2"></i> Plot No. CA-329 Shah Baig Gabool Town, North Karachi Industrial Area Karachi</li>
-            <li class="mb-2"><i class="bi bi-telephone me-2"></i> 0300-9200021</li>
+            <li class="mb-2"><i class="bi bi-telephone me-2"></i> 0313-2240771</li>
             <li><i class="bi bi-envelope me-2"></i> info@polyflexprintingservices.com</li>
           </ul>
         </div>
