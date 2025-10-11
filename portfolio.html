@@ -330,6 +330,9 @@
     /* Navbar links */
     .navbar-nav .nav-link{color:var(--text-dark);font-weight:500;padding:.5rem 1rem;border-radius:8px;transition:background-color .2s ease,color .2s ease}
     .navbar-nav .nav-link:hover,.navbar-nav .nav-link.active{background:rgba(250,177,47,0.1);color:var(--yellow)}
+  .brand-logo{font-weight:700;letter-spacing:0.5px}
+  .brand-tagline{font-size:.85rem;color:var(--yellow);opacity:.95;margin-top:2px}
+  @media (max-width: 576px){ .brand-tagline{font-size:.8rem} }
     /* Form elements */
     .form-label{
       color: var(--text-dark);
@@ -1025,7 +1028,10 @@
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
         <img src="logo.png" alt="Polyflex Printing & Packaging" style="height: 55px; width: auto;">
-        <span class="brand-logo">POLYFLEX</span>
+        <span class="brand-text d-flex flex-column lh-1">
+          <span class="brand-logo">POLYFLEX</span>
+          <span class="brand-tagline">Printing & Packaging</span>
+        </span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
