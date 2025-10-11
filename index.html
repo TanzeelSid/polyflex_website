@@ -1027,23 +1027,119 @@
 
     /* Portfolio */
     .portfolio-item{
-      border-radius: 12px; 
-      overflow:hidden; 
-      position:relative;
-      border:1px solid rgba(0,0,0,0.08);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.08),
+        0 5px 15px rgba(0, 0, 0, 0.04);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      background: white;
     }
+    
+    .portfolio-item:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 
+        0 25px 50px rgba(250, 129, 47, 0.25),
+        0 10px 25px rgba(250, 177, 47, 0.18);
+    }
+    
+    .portfolio-item img {
+      transition: all 0.4s ease;
+      filter: brightness(1) saturate(1);
+    }
+    
+    .portfolio-item:hover img {
+      transform: scale(1.05);
+      filter: brightness(1.1) saturate(1.2);
+      box-shadow: 0 10px 30px rgba(250,129,47,0.18);
+    }
+    
     .portfolio-item .overlay{
-      position:absolute;
-      inset:0;
-      background:linear-gradient(180deg, rgba(250,177,47,0.2), rgba(250,129,47,0.8));
-      opacity:0;
-      transition:opacity .25s ease;
-      display:flex;
-      align-items:flex-end;
-      padding:1rem;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(
+        to top,
+        rgba(250, 129, 47, 0.85) 0%,
+        rgba(250, 177, 47, 0.65) 50%,
+        transparent 100%
+      );
+      color: white;
+      padding: 2rem 1.5rem 1.5rem;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.4s ease;
     }
-    .portfolio-item:hover .overlay{opacity:1}
+    
+    .portfolio-item:hover .overlay {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    .portfolio-item .overlay h5 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 4px rgba(250,129,47,0.35);
+    }
+    
+    .portfolio-item .overlay p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      text-shadow: 0 1px 2px rgba(250,129,47,0.25);
+    }
+
+    /* Enhanced Default Heading - Visible by Default, Hidden on Hover */
+    .portfolio-item .hover-heading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--text-dark);
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-size: 1.4rem;
+      font-weight: 800;
+      text-align: center;
+      opacity: 1;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 2px solid rgba(250, 129, 47, 0.3);
+      box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.15),
+        0 5px 15px rgba(250, 129, 47, 0.2);
+      z-index: 10;
+      max-width: 80%;
+      word-wrap: break-word;
+      pointer-events: none;
+    }
+    
+    .portfolio-item:hover .hover-heading {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.9);
+    }
+    
+    .portfolio-item .hover-heading::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(135deg, var(--yellow), var(--orange));
+      border-radius: 14px;
+      z-index: -1;
+      opacity: 1;
+      transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    .portfolio-item:hover .hover-heading::before {
+      opacity: 0;
+    }
 
     /* Timeline */
     .timeline{position:relative}
@@ -1720,6 +1816,7 @@
             <div class="portfolio-slide">
               <div class="portfolio-item">
                 <img src="reel-printing.jpeg" alt="Reel Printing" style="width:100%;height:270px;object-fit:cover;">
+                <div class="hover-heading">Reel Printing</div>
                 <div class="overlay">
                   <div>
                     <h5 class="mb-0">Reel Printing</h5>
@@ -1732,6 +1829,7 @@
             <div class="portfolio-slide">
               <div class="portfolio-item">
                 <img src="shrink-labels.jpeg" alt="Shrink Labels" style="width:100%;height:270px;object-fit:cover;">
+                <div class="hover-heading">Shrink Labels</div>
                 <div class="overlay">
                   <div>
                     <h5 class="mb-0">Shrink Labels</h5>
@@ -1744,6 +1842,7 @@
             <div class="portfolio-slide">
               <div class="portfolio-item">
                 <img src="zipper-lock-bags.jpeg" alt="Zipper Lock Bags" style="width:100%;height:270px;object-fit:cover;">
+                <div class="hover-heading">Zipper Lock Bags</div>
                 <div class="overlay">
                   <div>
                     <h5 class="mb-0">Zipper Lock Bags</h5>
@@ -1756,6 +1855,7 @@
             <div class="portfolio-slide">
               <div class="portfolio-item">
                 <img src="product1.jpeg" alt="Product 1" style="width:100%;height:270px;object-fit:cover;">
+                <div class="hover-heading">Custom Packaging</div>
                 <div class="overlay">
                   <div>
                     <h5 class="mb-0">Custom Packaging</h5>
@@ -1768,6 +1868,7 @@
             <div class="portfolio-slide">
               <div class="portfolio-item">
                 <img src="product2.jpeg" alt="Product 2" style="width:100%;height:270px;object-fit:cover;">
+                <div class="hover-heading">Food Packaging</div>
                 <div class="overlay">
                   <div>
                     <h5 class="mb-0">Food Packaging</h5>
@@ -1780,10 +1881,89 @@
             <div class="portfolio-slide">
               <div class="portfolio-item">
                 <img src="product3.jpeg" alt="Product 3" style="width:100%;height:270px;object-fit:cover;">
+                <div class="hover-heading">Retail Packaging</div>
                 <div class="overlay">
                   <div>
                     <h5 class="mb-0">Retail Packaging</h5>
                     <p class="small text-muted mb-0">Stand out on store shelves.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="portfolio-slide">
+              <div class="portfolio-item">
+                <img src="product4.jpeg" alt="Premium Food Packaging" style="width:100%;height:270px;object-fit:cover;">
+                <div class="hover-heading">Premium Food Packaging</div>
+                <div class="overlay">
+                  <div>
+                    <h5 class="mb-0">Premium Food Packaging</h5>
+                    <p class="small text-muted mb-0">High-quality materials for food safety and freshness.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="portfolio-slide">
+              <div class="portfolio-item">
+                <img src="product5.jpeg" alt="Retail Display Packaging" style="width:100%;height:270px;object-fit:cover;">
+                <div class="hover-heading">Retail Display Packaging</div>
+                <div class="overlay">
+                  <div>
+                    <h5 class="mb-0">Retail Display Packaging</h5>
+                    <p class="small text-muted mb-0">Eye-catching displays that drive sales.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="portfolio-slide">
+              <div class="portfolio-item">
+                <img src="product6.jpeg" alt="Eco-Friendly Packaging" style="width:100%;height:270px;object-fit:cover;">
+                <div class="hover-heading">Eco-Friendly Packaging</div>
+                <div class="overlay">
+                  <div>
+                    <h5 class="mb-0">Eco-Friendly Packaging</h5>
+                    <p class="small text-muted mb-0">Sustainable solutions for environmentally conscious brands.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="portfolio-slide">
+              <div class="portfolio-item">
+                <img src="product7.jpeg" alt="Premium Flexible Packaging" style="width:100%;height:270px;object-fit:cover;">
+                <div class="hover-heading">Premium Flexible Packaging</div>
+                <div class="overlay">
+                  <div>
+                    <h5 class="mb-0">Premium Flexible Packaging</h5>
+                    <p class="small text-muted mb-0">Advanced flexible materials for superior protection.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="portfolio-slide">
+              <div class="portfolio-item">
+                <img src="product8.jpeg" alt="Industrial Packaging Solutions" style="width:100%;height:270px;object-fit:cover;">
+                <div class="hover-heading">Industrial Packaging Solutions</div>
+                <div class="overlay">
+                  <div>
+                    <h5 class="mb-0">Industrial Packaging Solutions</h5>
+                    <p class="small text-muted mb-0">Heavy-duty packaging for industrial applications.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="portfolio-slide">
+              <div class="portfolio-item">
+                <img src="product9.jpeg" alt="Specialty Barrier Films" style="width:100%;height:270px;object-fit:cover;">
+                <div class="hover-heading">Specialty Barrier Films</div>
+                <div class="overlay">
+                  <div>
+                    <h5 class="mb-0">Specialty Barrier Films</h5>
+                    <p class="small text-muted mb-0">Advanced barrier protection for sensitive products.</p>
                   </div>
                 </div>
               </div>
@@ -1798,6 +1978,15 @@
         <span class="dot active" data-index="0"></span>
         <span class="dot" data-index="1"></span>
         <span class="dot" data-index="2"></span>
+        <span class="dot" data-index="3"></span>
+        <span class="dot" data-index="4"></span>
+        <span class="dot" data-index="5"></span>
+        <span class="dot" data-index="6"></span>
+        <span class="dot" data-index="7"></span>
+        <span class="dot" data-index="8"></span>
+        <span class="dot" data-index="9"></span>
+        <span class="dot" data-index="10"></span>
+        <span class="dot" data-index="11"></span>
       </div>
     </div>
     </div>
@@ -1999,6 +2188,13 @@ document.addEventListener('DOMContentLoaded', function(){
     
     // Initialize slider
     updateSlider();
+    
+    // Add click event listeners to all slides for portfolio.html navigation
+    slides.forEach(slide => {
+      slide.addEventListener('click', () => {
+        window.location.href = 'portfolio.html';
+      });
+    });
     
     // Event listeners
     prevBtn.addEventListener('click', () => {
